@@ -80,8 +80,11 @@
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; }
+  .font-display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
   .tracking-wider-sm { letter-spacing: 0.14em; }
+  .bg-grain { background-image: var(--grain); background-size: 160px 160px; }
+  .bg-grid { background-image: var(--grid-lines); background-size: 56px 56px; }
+  .bg-grid-sm { background-image: var(--grid-lines); background-size: 28px 28px; }
 
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
