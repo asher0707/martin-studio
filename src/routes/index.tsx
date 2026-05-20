@@ -92,8 +92,16 @@ function Hero() {
   return (
     <section className="relative bg-deep px-5 pt-28 pb-10">
       <div className="relative mx-auto h-[88vh] max-h-[920px] min-h-[640px] w-full overflow-hidden rounded-3xl">
-        <img src={heroImg} alt="Cliffside architecture at dusk" width={1920} height={1280} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.08 0.01 25 / 0.3), oklch(0.08 0.01 25 / 0.2), oklch(0.45 0.22 25 / 0.55))" }} />
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <iframe
+            title="Hero background video"
+            src="https://www.youtube.com/embed/jK9SGbX1KaE?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=jK9SGbX1KaE"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+            className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
+          />
+        </div>
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.08 0.01 25 / 0.45), oklch(0.08 0.01 25 / 0.3), oklch(0.45 0.22 25 / 0.6))" }} />
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(3rem, 9vw, 9rem)", lineHeight: 0.95 }}>
@@ -113,26 +121,6 @@ function Hero() {
             <ChevronDown className="h-5 w-5 animate-bounce-soft" />
           </a>
         </div>
-
-        <a
-          href="https://youtu.be/jK9SGbX1KaE?si=5nAysrI0Rw6GcPXQ"
-          target="_blank"
-          rel="noreferrer"
-          className="group absolute bottom-6 right-6 z-20 block w-56 overflow-hidden rounded-2xl border border-white/10 bg-deep/70 p-2 backdrop-blur-md transition hover:scale-[1.02]"
-        >
-          <div className="flex items-center justify-between px-2 pb-2 pt-1">
-            <span className="text-[10px] uppercase tracking-wider-sm text-foreground/70">Satisfaction</span>
-            <span className="font-display text-xl text-foreground">4.9</span>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-            <img src={visp} alt="Project film" width={400} height={300} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-105" />
-            <div className="absolute inset-0 grid place-items-center bg-black/30">
-              <span className="grid h-11 w-11 place-items-center rounded-full bg-white/90 text-deep">
-                <Play className="h-4 w-4 fill-current" />
-              </span>
-            </div>
-          </div>
-        </a>
       </div>
     </section>
   );
