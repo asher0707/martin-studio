@@ -40,8 +40,12 @@ function Loader() {
   const [hide, setHide] = useState(false);
   return (
     <div
-      className="fixed inset-0 z-[100] grid place-items-center bg-deep transition-all duration-700"
-      style={{ opacity: hide ? 0 : 1, visibility: hide ? "hidden" : "visible", pointerEvents: hide ? "none" : "auto" }}
+      className="fixed inset-0 z-[100] grid place-items-center bg-deep"
+      style={{
+        transform: hide ? "translateY(-100%)" : "translateY(0)",
+        transition: "transform 1000ms cubic-bezier(0.77, 0, 0.175, 1)",
+        pointerEvents: hide ? "none" : "auto",
+      }}
     >
       <video
         src="/load.mp4"
