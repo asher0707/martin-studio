@@ -15,10 +15,10 @@ export const Route = createFileRoute("/")({
 });
 
 const projects = [
-  { name: "Saas Fee", year: "2023", location: "Valais, CH", img: saasFee, desc: "An alpine retreat carved into the silence of the snowline." },
-  { name: "Eggerberg", year: "2024", location: "Brig, CH", img: eggerberg, desc: "A cantilevered glass volume floating above the granite shelf." },
-  { name: "Erb", year: "2024", location: "Zermatt, CH", img: erb, desc: "Stone, timber and storm light — a shelter that listens." },
-  { name: "Visp", year: "2025", location: "Rhone Valley, CH", img: visp, desc: "Sharp geometries meeting the soft violet of dusk." },
+  { name: "Saas Fee", year: "2023", location: "Valais, CH", img: saasFee, desc: "An alpine retreat carved into the silence of the snowline.", href: "https://alpenchaletdomino.com/" },
+  { name: "Eggerberg", year: "2024", location: "Brig, CH", img: eggerberg, desc: "A cantilevered glass volume floating above the granite shelf.", href: "https://soleilhome.info/" },
+  { name: "Erb", year: "2024", location: "Zermatt, CH", img: erb, desc: "Stone, timber and storm light — a shelter that listens.", href: "https://erbhome.info/" },
+  { name: "Visp", year: "2025", location: "Rhone Valley, CH", img: visp, desc: "Sharp geometries meeting the soft violet of dusk.", href: "#" },
 ];
 
 const gallery = [
@@ -47,19 +47,14 @@ function Loader() {
       className="fixed inset-0 z-[100] grid place-items-center bg-deep transition-all duration-700"
       style={{ opacity: hide ? 0 : 1, visibility: hide ? "hidden" : "visible" }}
     >
-      <div className="flex flex-col items-center gap-6">
-        <div className="relative h-16 w-16">
-          <span className="absolute inset-0 rounded-full border-2 border-white/10" />
-          <span
-            className="absolute inset-0 rounded-full border-2 border-transparent"
-            style={{ borderTopColor: "oklch(0.55 0.22 25)", animation: "loader-spin 0.9s linear infinite" }}
-          />
-        </div>
-        <div className="h-[2px] w-40 overflow-hidden bg-white/10">
-          <div className="h-full" style={{ background: "var(--gradient-red-black)", animation: "loader-bar 1.2s ease-out forwards" }} />
-        </div>
-        <span className="text-[10px] uppercase tracking-wider-sm text-foreground/60">SwissPlan</span>
-      </div>
+      <video
+        src="/load.mp4"
+        autoPlay
+        muted
+        playsInline
+        loop
+        className="h-40 w-40 object-contain"
+      />
     </div>
   );
 }
@@ -70,19 +65,13 @@ function Header() {
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-6">
         <a href="#" className="flex items-center gap-3">
           <img src={logoImg} alt="SwissPlan" width={120} height={48} className="h-10 w-auto object-contain" />
-          <span className="font-display text-xl tracking-tight text-foreground">SwissPlan</span>
         </a>
         <nav className="hidden items-center gap-12 md:flex">
           <a href="#projects" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Current Projects</a>
           <a href="#portfolio" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Portfolio</a>
           <a href="#contact" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Contact Us</a>
         </nav>
-        <a href="#contact" className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground transition hover:gap-3" style={{ background: "var(--gradient-red-black)" }}>
-          Let's Talk
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-foreground/95 text-primary transition-transform group-hover:rotate-45">
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </span>
-        </a>
+        <div className="w-[120px]" aria-hidden />
       </div>
     </header>
   );
@@ -104,16 +93,12 @@ function Hero() {
         
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(3rem, 9vw, 9rem)", lineHeight: 0.95 }}>
+          <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)", lineHeight: 0.95 }}>
             <span className="block font-semibold uppercase tracking-tight">Inward Journey</span>
             <span className="mt-2 block italic">for the Soul</span>
           </h1>
-          <a href="#projects" className="group mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground animate-fade-up" style={{ background: "var(--gradient-red-black)" }}>
-            Explore products
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
-          </a>
 
-          <p className="mx-auto mt-16 max-w-md text-sm text-foreground/85 animate-fade-in">
+          <p className="mx-auto mt-12 max-w-md text-sm text-foreground/85 animate-fade-in">
             #Where the precision of the grid meets the vitality of the shore. A high-scale context for the modern nomad to recharge.
           </p>
           <a href="#projects" className="mt-10 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-primary">
@@ -127,17 +112,7 @@ function Hero() {
 }
 
 function Intro() {
-  return (
-    <section className="bg-deep px-8 py-32">
-      <div className="mx-auto flex max-w-6xl flex-col items-center text-center reveal">
-        <Diamond className="h-5 w-5 text-primary" />
-        <h2 className="mt-6 font-display text-foreground" style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)", lineHeight: 1.05 }}>
-          We are a conversion-led collective redefining the language of place,
-          <span className="italic text-foreground/70"> one quiet monolith at a time.</span>
-        </h2>
-      </div>
-    </section>
-  );
+  return null;
 }
 
 function CurrentProjects() {
@@ -146,29 +121,39 @@ function CurrentProjects() {
 
   useEffect(() => {
     let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const el = wrapRef.current;
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const vh = window.innerHeight;
-        const total = el.offsetHeight - vh;
-        const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
-        setProgress(total > 0 ? scrolled / total : 0);
-      });
+    let target = 0;
+    let current = 0;
+    let running = true;
+
+    const measure = () => {
+      const el = wrapRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const total = el.offsetHeight - vh;
+      const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
+      target = total > 0 ? scrolled / total : 0;
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+
+    const tick = () => {
+      current += (target - current) * 0.08; // smooth lerp
+      setProgress(current);
+      if (running) raf = requestAnimationFrame(tick);
+    };
+
+    measure();
+    current = target;
+    raf = requestAnimationFrame(tick);
+    window.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      running = false;
+      window.removeEventListener("scroll", measure);
+      window.removeEventListener("resize", measure);
       cancelAnimationFrame(raf);
     };
   }, []);
 
-  // Slide track horizontally; show ~3 cards at a time.
   const maxShift = Math.max(0, (projects.length - 3) * (100 / 3));
   const translatePct = -(progress * maxShift);
 
@@ -198,16 +183,18 @@ function CurrentProjects() {
             style={{
               width: `${(projects.length / 3) * 100}%`,
               transform: `translate3d(${translatePct}%, 0, 0)`,
-              transition: "transform 0.15s linear",
             }}
           >
             {projects.map((p, i) => (
-              <article
+              <a
                 key={p.name}
-                className="relative flex h-[70%] shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/30"
+                href={p.href}
+                target={p.href.startsWith("http") ? "_blank" : undefined}
+                rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="group relative flex h-[70%] shrink-0 overflow-hidden border border-white/15 bg-black/30"
                 style={{ width: `calc(${100 / projects.length}% - 1.25rem)` }}
               >
-                <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90" />
+                <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
                 <div className="relative z-10 mt-auto w-full p-8">
                   <span className="text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
@@ -215,7 +202,7 @@ function CurrentProjects() {
                     {p.name}
                   </h3>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </div>
