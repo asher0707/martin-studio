@@ -65,19 +65,13 @@ function Header() {
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-6">
         <a href="#" className="flex items-center gap-3">
           <img src={logoImg} alt="SwissPlan" width={120} height={48} className="h-10 w-auto object-contain" />
-          <span className="font-display text-xl tracking-tight text-foreground">SwissPlan</span>
         </a>
         <nav className="hidden items-center gap-12 md:flex">
           <a href="#projects" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Current Projects</a>
           <a href="#portfolio" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Portfolio</a>
           <a href="#contact" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Contact Us</a>
         </nav>
-        <a href="#contact" className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground transition hover:gap-3" style={{ background: "var(--gradient-red-black)" }}>
-          Let's Talk
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-foreground/95 text-primary transition-transform group-hover:rotate-45">
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </span>
-        </a>
+        <div className="w-[120px]" aria-hidden />
       </div>
     </header>
   );
