@@ -101,7 +101,7 @@ function Hero() {
             className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
           />
         </div>
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.08 0.01 25 / 0.45), oklch(0.08 0.01 25 / 0.3), oklch(0.45 0.22 25 / 0.6))" }} />
+        
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(3rem, 9vw, 9rem)", lineHeight: 0.95 }}>
