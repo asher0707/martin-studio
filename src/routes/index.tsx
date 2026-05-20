@@ -230,12 +230,13 @@ function CurrentProjects() {
 
 function Portfolio() {
   return (
-    <section id="portfolio" className="bg-deep px-[30px] py-28">
-      <div className="mx-auto mb-12 flex max-w-[1800px] flex-col gap-6 reveal md:flex-row md:items-end md:justify-between">
+    <section id="portfolio" className="relative bg-deep py-28" style={{ paddingLeft: 50, paddingRight: 50 }}>
+      <div className="pointer-events-none absolute inset-0 bg-grain opacity-20" />
+      <div className="relative mx-auto mb-12 flex max-w-[1800px] flex-col gap-6 reveal md:flex-row md:items-end md:justify-between">
         <div>
           <span className="text-xs uppercase tracking-wider-sm text-primary">Portfolio</span>
-          <h2 className="mt-3 font-display text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: 1 }}>
-            A grid of <span className="italic text-foreground/70">quiet weight</span>
+          <h2 className="mt-3 font-display uppercase text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: 1 }}>
+            A grid of <span className="text-foreground/60">quiet weight</span>
           </h2>
         </div>
         <p className="max-w-md text-sm text-foreground/75">
@@ -243,9 +244,11 @@ function Portfolio() {
         </p>
       </div>
 
-      <div className="mx-auto grid max-w-[1800px] grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-6">
+      <div className="relative mx-auto grid max-w-[1800px] grid-cols-2 gap-0 md:grid-cols-4 lg:grid-cols-6">
         {Array.from({ length: 30 }).map((_, i) => {
-          const item = gallery[i % gallery.length];
+          const tags = ["Residential", "Wellness", "Hospitality", "Workspace"];
+          const title = `Project ${String(i + 1).padStart(2, "0")}`;
+          const tag = tags[i % tags.length];
           return (
             <a
               key={i}
@@ -253,14 +256,14 @@ function Portfolio() {
               className="group relative aspect-square overflow-hidden reveal"
               style={{ transitionDelay: `${(i % 6) * 60}ms` }}
             >
-              <img src={item.src} alt={item.title} width={800} height={800} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={`/cards/card${i + 1}.jpeg`} alt={title} width={800} height={800} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{ background: "var(--gradient-hover)" }}
               />
-              <div className="absolute inset-0 flex translate-y-3 flex-col justify-end p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="text-[10px] uppercase tracking-wider-sm text-foreground">{item.tag}</span>
-                <h3 className="mt-1 font-display text-xl text-foreground">{item.title}</h3>
+              <div className="absolute inset-0 flex translate-y-3 flex-col justify-end p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="text-[10px] uppercase tracking-wider-sm text-foreground">{tag}</span>
+                <h3 className="mt-1 font-display text-xl uppercase text-foreground">{title}</h3>
               </div>
             </a>
           );
