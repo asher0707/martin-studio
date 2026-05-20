@@ -38,21 +38,17 @@ const gallery = [
 
 function Loader() {
   const [hide, setHide] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setHide(true), 1400);
-    return () => clearTimeout(t);
-  }, []);
   return (
     <div
       className="fixed inset-0 z-[100] grid place-items-center bg-deep transition-all duration-700"
-      style={{ opacity: hide ? 0 : 1, visibility: hide ? "hidden" : "visible" }}
+      style={{ opacity: hide ? 0 : 1, visibility: hide ? "hidden" : "visible", pointerEvents: hide ? "none" : "auto" }}
     >
       <video
         src="/load.mp4"
         autoPlay
         muted
         playsInline
-        loop
+        onEnded={() => setHide(true)}
         className="h-full w-full object-cover"
       />
     </div>
@@ -64,7 +60,8 @@ function Header() {
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-6">
         <a href="#" className="flex items-center gap-3">
-          <img src={logoImg} alt="SwissPlan" width={120} height={48} className="h-10 w-auto object-contain" />
+          <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.35 0.18 25)" }} aria-hidden />
+          <span className="font-display text-base uppercase tracking-wider-sm text-foreground">Swiss Realplan</span>
         </a>
         <nav className="hidden items-center gap-12 md:flex">
           <a href="#projects" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Current Projects</a>
