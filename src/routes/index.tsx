@@ -47,19 +47,14 @@ function Loader() {
       className="fixed inset-0 z-[100] grid place-items-center bg-deep transition-all duration-700"
       style={{ opacity: hide ? 0 : 1, visibility: hide ? "hidden" : "visible" }}
     >
-      <div className="flex flex-col items-center gap-6">
-        <div className="relative h-16 w-16">
-          <span className="absolute inset-0 rounded-full border-2 border-white/10" />
-          <span
-            className="absolute inset-0 rounded-full border-2 border-transparent"
-            style={{ borderTopColor: "oklch(0.55 0.22 25)", animation: "loader-spin 0.9s linear infinite" }}
-          />
-        </div>
-        <div className="h-[2px] w-40 overflow-hidden bg-white/10">
-          <div className="h-full" style={{ background: "var(--gradient-red-black)", animation: "loader-bar 1.2s ease-out forwards" }} />
-        </div>
-        <span className="text-[10px] uppercase tracking-wider-sm text-foreground/60">SwissPlan</span>
-      </div>
+      <video
+        src="/load.mp4"
+        autoPlay
+        muted
+        playsInline
+        loop
+        className="h-40 w-40 object-contain"
+      />
     </div>
   );
 }
