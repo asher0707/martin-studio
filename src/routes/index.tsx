@@ -7,6 +7,8 @@ import eggerberg from "@/assets/proj-eggerberg.jpg";
 import erb from "@/assets/proj-erb.jpg";
 import visp from "@/assets/proj-visp.jpg";
 import contactImg from "@/assets/contact.jpg";
+import logoImg from "@/assets/logo.png";
+import teamImg from "@/assets/team.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -34,19 +36,50 @@ const gallery = [
   { src: contactImg, title: "Atelier", tag: "Workspace" },
 ];
 
+function Loader() {
+  const [hide, setHide] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setHide(true), 1400);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <div
+      className="fixed inset-0 z-[100] grid place-items-center bg-deep transition-all duration-700"
+      style={{ opacity: hide ? 0 : 1, visibility: hide ? "hidden" : "visible" }}
+    >
+      <div className="flex flex-col items-center gap-6">
+        <div className="relative h-16 w-16">
+          <span className="absolute inset-0 rounded-full border-2 border-white/10" />
+          <span
+            className="absolute inset-0 rounded-full border-2 border-transparent"
+            style={{ borderTopColor: "oklch(0.55 0.22 25)", animation: "loader-spin 0.9s linear infinite" }}
+          />
+        </div>
+        <div className="h-[2px] w-40 overflow-hidden bg-white/10">
+          <div className="h-full" style={{ background: "var(--gradient-red-black)", animation: "loader-bar 1.2s ease-out forwards" }} />
+        </div>
+        <span className="text-[10px] uppercase tracking-wider-sm text-foreground/60">SwissPlan</span>
+      </div>
+    </div>
+  );
+}
+
 function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
-      <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-7">
-        <a href="#" className="font-display text-2xl tracking-tight text-foreground">Monolith</a>
+      <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-6">
+        <a href="#" className="flex items-center gap-3">
+          <img src={logoImg} alt="SwissPlan" width={120} height={48} className="h-10 w-auto object-contain" />
+          <span className="font-display text-xl tracking-tight text-foreground">SwissPlan</span>
+        </a>
         <nav className="hidden items-center gap-12 md:flex">
-          <a href="#projects" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-mint">Current Projects</a>
-          <a href="#portfolio" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-mint">Portfolio</a>
-          <a href="#contact" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-mint">Contact Us</a>
+          <a href="#projects" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Current Projects</a>
+          <a href="#portfolio" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Portfolio</a>
+          <a href="#contact" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Contact Us</a>
         </nav>
-        <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-medium text-mint-foreground transition hover:gap-3">
+        <a href="#contact" className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground transition hover:gap-3" style={{ background: "var(--gradient-red-black)" }}>
           Let's Talk
-          <span className="grid h-6 w-6 place-items-center rounded-full bg-mint-foreground/90 text-mint transition-transform group-hover:rotate-45">
+          <span className="grid h-6 w-6 place-items-center rounded-full bg-foreground/95 text-primary transition-transform group-hover:rotate-45">
             <ArrowUpRight className="h-3.5 w-3.5" />
           </span>
         </a>
@@ -60,15 +93,14 @@ function Hero() {
     <section className="relative bg-deep px-5 pt-28 pb-10">
       <div className="relative mx-auto h-[88vh] max-h-[920px] min-h-[640px] w-full overflow-hidden rounded-3xl">
         <img src={heroImg} alt="Cliffside architecture at dusk" width={1920} height={1280} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-deep/30 via-deep/10 to-deep/70" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.08 0.01 25 / 0.3), oklch(0.08 0.01 25 / 0.2), oklch(0.45 0.22 25 / 0.55))" }} />
 
-        {/* Overlay text */}
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(3rem, 9vw, 9rem)", lineHeight: 0.95 }}>
             <span className="block font-semibold uppercase tracking-tight">Inward Journey</span>
             <span className="mt-2 block italic">for the Soul</span>
           </h1>
-          <a href="#projects" className="group mt-10 inline-flex items-center gap-2 rounded-full bg-mint px-6 py-3 text-sm font-medium text-mint-foreground animate-fade-up">
+          <a href="#projects" className="group mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground animate-fade-up" style={{ background: "var(--gradient-red-black)" }}>
             Explore products
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
           </a>
@@ -76,13 +108,12 @@ function Hero() {
           <p className="mx-auto mt-16 max-w-md text-sm text-foreground/85 animate-fade-in">
             #Where the precision of the grid meets the vitality of the shore. A high-scale context for the modern nomad to recharge.
           </p>
-          <a href="#projects" className="mt-10 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-mint">
+          <a href="#projects" className="mt-10 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-primary">
             Scroll Down
             <ChevronDown className="h-5 w-5 animate-bounce-soft" />
           </a>
         </div>
 
-        {/* Video card */}
         <a
           href="https://youtu.be/jK9SGbX1KaE?si=5nAysrI0Rw6GcPXQ"
           target="_blank"
@@ -111,7 +142,7 @@ function Intro() {
   return (
     <section className="bg-deep px-8 py-32">
       <div className="mx-auto flex max-w-6xl flex-col items-center text-center reveal">
-        <Diamond className="h-5 w-5 text-mint" />
+        <Diamond className="h-5 w-5 text-primary" />
         <h2 className="mt-6 font-display text-foreground" style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)", lineHeight: 1.05 }}>
           We are a conversion-led collective redefining the language of place,
           <span className="italic text-foreground/70"> one quiet monolith at a time.</span>
@@ -123,33 +154,50 @@ function Intro() {
 
 function CurrentProjects() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
+    let raf = 0;
     const onScroll = () => {
-      const el = wrapRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const total = el.offsetHeight - window.innerHeight;
-      const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const p = total > 0 ? scrolled / total : 0;
-      setProgress(p);
-      setActiveIdx(Math.min(projects.length - 1, Math.floor(p * projects.length * 0.999)));
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const el = wrapRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const total = el.offsetHeight - vh;
+        const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
+        const p = total > 0 ? scrolled / total : 0;
+        setProgress(p);
+        setActiveIdx(Math.min(projects.length - 1, Math.floor(p * projects.length * 0.9999)));
+      });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
-  const translateX = -(progress * (projects.length - 1) * 100);
+  // Track is N * 100vw wide; max translate = -(N-1) * 100vw to land last card flush.
+  const translatePct = -(progress * (projects.length - 1) * (100 / projects.length));
 
   return (
-    <section id="projects" ref={wrapRef} className="relative bg-deep" style={{ height: `${projects.length * 100}vh` }}>
+    <section
+      id="projects"
+      ref={wrapRef}
+      className="relative bg-deep"
+      style={{ height: `${projects.length * 100}vh` }}
+    >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
         <div className="flex items-end justify-between px-8 pt-16 pb-8 md:px-14">
           <div>
-            <span className="text-xs uppercase tracking-wider-sm text-mint">Current Projects</span>
+            <span className="text-xs uppercase tracking-wider-sm text-primary">Current Projects</span>
             <h2 className="mt-3 font-display text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: 1 }}>
               In the studio <span className="italic text-foreground/70">now</span>
             </h2>
@@ -158,25 +206,31 @@ function CurrentProjects() {
             {projects.map((p, i) => (
               <span
                 key={p.name}
-                className={`h-[2px] w-10 transition-all duration-500 ${i <= activeIdx ? "bg-mint" : "bg-foreground/20"}`}
+                className="h-[2px] w-10 transition-all duration-500"
+                style={{ background: i <= activeIdx ? "var(--gradient-red-black)" : "oklch(1 0 0 / 0.2)" }}
               />
             ))}
           </div>
         </div>
 
-        <div className="relative flex-1 px-8 md:px-14">
+        <div className="relative flex-1 overflow-hidden px-8 md:px-14">
           <div
-            className="flex h-full gap-8 transition-transform duration-700 ease-out"
-            style={{ transform: `translate3d(${translateX}%, 0, 0)`, width: `${projects.length * 100}%` }}
+            ref={trackRef}
+            className="flex h-full will-change-transform"
+            style={{
+              width: `${projects.length * 100}%`,
+              transform: `translate3d(${translatePct}%, 0, 0)`,
+              transition: "transform 0.15s linear",
+            }}
           >
             {projects.map((p, i) => (
               <article
                 key={p.name}
                 className="relative flex h-full shrink-0 overflow-hidden rounded-3xl border border-white/10"
-                style={{ width: `${100 / projects.length}%` }}
+                style={{ width: `${100 / projects.length}%`, marginRight: i < projects.length - 1 ? "1.5rem" : 0 }}
               >
                 <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.95), oklch(0.45 0.22 25 / 0.25), transparent)" }} />
                 <div className="relative z-10 flex h-full w-full flex-col justify-between p-10 md:p-14">
                   <div className="flex items-start justify-between">
                     <span className="rounded-full border border-foreground/30 px-3 py-1 text-[10px] uppercase tracking-wider-sm text-foreground/80">
@@ -189,7 +243,7 @@ function CurrentProjects() {
                       {p.name}
                     </h3>
                     <p className="mt-4 text-base text-foreground/80">{p.desc}</p>
-                    <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-mint">
+                    <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
                       View case <ArrowUpRight className="h-4 w-4" />
                     </a>
                   </div>
@@ -208,7 +262,7 @@ function Portfolio() {
     <section id="portfolio" className="bg-deep px-[30px] py-28">
       <div className="mx-auto mb-12 flex max-w-[1800px] flex-col gap-6 reveal md:flex-row md:items-end md:justify-between">
         <div>
-          <span className="text-xs uppercase tracking-wider-sm text-mint">Portfolio</span>
+          <span className="text-xs uppercase tracking-wider-sm text-primary">Portfolio</span>
           <h2 className="mt-3 font-display text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: 1 }}>
             A grid of <span className="italic text-foreground/70">quiet weight</span>
           </h2>
@@ -218,14 +272,14 @@ function Portfolio() {
         </p>
       </div>
 
-      <div className="mx-auto grid max-w-[1800px] grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className="mx-auto grid max-w-[1800px] grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-6">
         {Array.from({ length: 30 }).map((_, i) => {
           const item = gallery[i % gallery.length];
           return (
             <a
               key={i}
               href="#"
-              className="group relative aspect-square overflow-hidden rounded-xl reveal"
+              className="group relative aspect-square overflow-hidden reveal"
               style={{ transitionDelay: `${(i % 6) * 60}ms` }}
             >
               <img src={item.src} alt={item.title} width={800} height={800} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -234,7 +288,7 @@ function Portfolio() {
                 style={{ background: "var(--gradient-hover)" }}
               />
               <div className="absolute inset-0 flex translate-y-3 flex-col justify-end p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="text-[10px] uppercase tracking-wider-sm text-mint">{item.tag}</span>
+                <span className="text-[10px] uppercase tracking-wider-sm text-foreground">{item.tag}</span>
                 <h3 className="mt-1 font-display text-xl text-foreground">{item.title}</h3>
               </div>
             </a>
@@ -248,18 +302,13 @@ function Portfolio() {
 function Contact() {
   return (
     <section id="contact" className="bg-deep px-8 py-28">
-      <div className="mx-auto grid max-w-[1600px] gap-10 md:grid-cols-2 md:gap-16">
-        <div className="reveal relative overflow-hidden rounded-3xl">
-          <img src={contactImg} alt="Inside the studio" width={1280} height={1600} loading="lazy" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-deep/70 to-transparent" />
-          <div className="absolute bottom-0 left-0 p-10">
-            <span className="text-xs uppercase tracking-wider-sm text-mint">Visit the Studio</span>
-            <h3 className="mt-2 font-display text-3xl text-foreground">Rue du Rhône 14, Genève</h3>
-          </div>
+      <div className="mx-auto grid max-w-[1600px] items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div className="reveal relative overflow-hidden rounded-3xl" style={{ background: "var(--gradient-red-black)" }}>
+          <img src={teamImg} alt="Our team" width={1280} height={1280} loading="lazy" className="h-full w-full object-contain" />
         </div>
 
         <div className="reveal flex flex-col justify-center">
-          <span className="text-xs uppercase tracking-wider-sm text-mint">Contact Us</span>
+          <span className="text-xs uppercase tracking-wider-sm text-primary">Contact Us</span>
           <h2 className="mt-3 font-display text-foreground" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1 }}>
             Begin the <span className="italic text-foreground/70">conversation.</span>
           </h2>
@@ -271,9 +320,9 @@ function Contact() {
             <Field label="Subject" placeholder="A new monolith…" />
             <label className="flex flex-col gap-2 text-xs uppercase tracking-wider-sm text-foreground/70">
               Message
-              <textarea rows={4} placeholder="Tell us about the place." className="rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-mint focus:outline-none" />
+              <textarea rows={4} placeholder="Tell us about the place." className="rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none" />
             </label>
-            <button type="submit" className="group mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-mint px-6 py-3 text-sm font-medium text-mint-foreground transition hover:gap-3">
+            <button type="submit" className="group mt-2 inline-flex w-fit items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground transition hover:gap-3" style={{ background: "var(--gradient-red-black)" }}>
               Send message
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
             </button>
@@ -282,7 +331,7 @@ function Contact() {
       </div>
 
       <footer className="mx-auto mt-24 flex max-w-[1600px] flex-col items-start justify-between gap-4 border-t border-border pt-8 text-xs uppercase tracking-wider-sm text-foreground/60 md:flex-row md:items-center">
-        <span>© {new Date().getFullYear()} Monolith Collective</span>
+        <span>© {new Date().getFullYear()} SwissPlan Collective</span>
         <span>Geneva · Zurich · Milan</span>
       </footer>
     </section>
@@ -293,7 +342,7 @@ function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes
   return (
     <label className="flex flex-col gap-2 text-xs uppercase tracking-wider-sm text-foreground/70">
       {label}
-      <input {...rest} className="rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-mint focus:outline-none" />
+      <input {...rest} className="rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none" />
     </label>
   );
 }
@@ -313,6 +362,7 @@ function Home() {
 
   return (
     <main className="bg-deep">
+      <Loader />
       <Header />
       <Hero />
       <Intro />

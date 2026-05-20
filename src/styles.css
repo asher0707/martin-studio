@@ -39,34 +39,35 @@
 
 :root {
   --radius: 1rem;
-  /* Deep forest green palette inspired by reference */
-  --background: oklch(0.28 0.045 165);
-  --deep: oklch(0.22 0.045 165);
-  --foreground: oklch(0.97 0.01 150);
-  --card: oklch(0.32 0.045 165);
-  --card-foreground: oklch(0.97 0.01 150);
-  --popover: oklch(0.32 0.045 165);
-  --popover-foreground: oklch(0.97 0.01 150);
-  --primary: oklch(0.97 0.01 150);
-  --primary-foreground: oklch(0.22 0.045 165);
-  --secondary: oklch(0.36 0.04 165);
-  --secondary-foreground: oklch(0.97 0.01 150);
-  --muted: oklch(0.36 0.04 165);
-  --muted-foreground: oklch(0.78 0.02 150);
-  --accent: oklch(0.36 0.04 165);
-  --accent-foreground: oklch(0.97 0.01 150);
-  --mint: oklch(0.92 0.08 140);
-  --mint-foreground: oklch(0.22 0.045 165);
+  /* Red & Black palette */
+  --background: oklch(0.12 0.01 25);
+  --deep: oklch(0.08 0.005 25);
+  --foreground: oklch(0.98 0.005 25);
+  --card: oklch(0.16 0.02 25);
+  --card-foreground: oklch(0.98 0.005 25);
+  --popover: oklch(0.16 0.02 25);
+  --popover-foreground: oklch(0.98 0.005 25);
+  --primary: oklch(0.55 0.22 25);
+  --primary-foreground: oklch(0.98 0.005 25);
+  --secondary: oklch(0.20 0.02 25);
+  --secondary-foreground: oklch(0.98 0.005 25);
+  --muted: oklch(0.20 0.02 25);
+  --muted-foreground: oklch(0.72 0.02 25);
+  --accent: oklch(0.45 0.20 25);
+  --accent-foreground: oklch(0.98 0.005 25);
+  --mint: oklch(0.55 0.24 25);
+  --mint-foreground: oklch(0.98 0.005 25);
   --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.97 0.01 150);
-  --border: oklch(1 0 0 / 14%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.92 0.08 140);
+  --destructive-foreground: oklch(0.98 0.005 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.55 0.22 25);
 
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --gradient-hover: linear-gradient(135deg, oklch(0.35 0.18 25 / 0.7), oklch(0.22 0.15 15 / 0.85));
+  --gradient-hover: linear-gradient(135deg, oklch(0.45 0.22 25 / 0.85), oklch(0.10 0.02 25 / 0.92));
+  --gradient-red-black: linear-gradient(135deg, oklch(0.45 0.22 25), oklch(0.08 0.01 25));
 }
 
 @layer base {
@@ -90,6 +91,16 @@
   @keyframes bounce-soft {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(6px); }
+  }
+  @keyframes loader-spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes loader-bar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+  @keyframes loader-out {
+    to { opacity: 0; visibility: hidden; }
   }
   .animate-fade-up { animation: fade-up 0.9s cubic-bezier(.2,.7,.2,1) both; }
   .animate-fade-in { animation: fade-in 1.2s ease-out both; }
