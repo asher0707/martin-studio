@@ -112,7 +112,6 @@ function Hero() {
 }
 
 function Intro() {
-function Intro() {
   return null;
 }
 
