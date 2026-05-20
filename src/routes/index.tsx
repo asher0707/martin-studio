@@ -335,16 +335,33 @@ function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes
 
 function Home() {
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); });
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
       },
       { threshold: 0.15 }
     );
-    els.forEach((el) => io.observe(el));
+
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    const textSelector = "h1, h2, h3, h4, h5, h6, p, span, a, label, li, blockquote";
+    const textEls = document.querySelectorAll<HTMLElement>(`main ${textSelector}`);
+    textEls.forEach((el) => {
+      if (el.closest("header")) return;
+      if (el.closest(".text-anim")) return;
+      if (!el.textContent || !el.textContent.trim()) return;
+      el.classList.add("text-anim");
+      io.observe(el);
+    });
+
     return () => io.disconnect();
   }, []);
+
 
   return (
     <main className="bg-deep">
