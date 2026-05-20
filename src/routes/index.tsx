@@ -62,7 +62,7 @@ function Loader() {
 function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-30" style={{ background: "oklch(0.30 0.18 25)" }}>
-      <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-6">
+      <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-3">
         <a href="#" className="flex items-center gap-3">
           <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.35 0.18 25)" }} aria-hidden />
           <span className="font-display text-base uppercase tracking-wider-sm text-foreground">Swiss Realplan</span>
@@ -94,9 +94,9 @@ function Hero() {
 
         <div className="relative z-10 flex h-full flex-col px-6 text-center">
           <div className="mt-auto flex flex-col items-center pb-10">
-            <h1 className="font-display text-foreground animate-fade-up" style={{ lineHeight: 0.95 }}>
+            <h1 className="font-display text-foreground animate-fade-up" style={{ lineHeight: 1.05, textShadow: "0 2px 12px rgba(0,0,0,1)" }}>
               <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)" }}>Inward Journey</span>
-              <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)" }}>for the Soul</span>
+              <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)", textShadow: "0 2px 10px rgba(0,0,0,1)" }}>for the Soul</span>
             </h1>
             <p className="mx-auto mt-6 max-w-md text-sm text-foreground/85 animate-fade-in">
               #Where the precision of the grid meets the vitality of the shore. A high-scale context for the modern nomad to recharge.
