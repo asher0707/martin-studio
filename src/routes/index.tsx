@@ -78,7 +78,7 @@ function Header() {
   return (
     <header
       className="fixed inset-x-0 top-0 z-50 backdrop-blur-xl"
-      style={{ background: "oklch(0.18 0.14 25 / 0.85)", borderBottom: "1px solid oklch(1 0 0 / 0.12)", boxShadow: "0 4px 24px oklch(0 0 0 / 0.4)" }}
+      style={{ background: "oklch(0.45 0.02 260 / 0.82)", borderBottom: "1px solid oklch(1 1 0.01 / 0.12)", boxShadow: "0 4px 24px oklch(0 0 0 / 0.15)" }}
     >
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-3">
         <a href="#" className="flex items-center gap-3">
