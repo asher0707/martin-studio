@@ -60,12 +60,30 @@ function Loader() {
 }
 
 function Header() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const h = document.documentElement;
+      const total = h.scrollHeight - h.clientHeight;
+      setProgress(total > 0 ? (h.scrollTop / total) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
   return (
-    <header className="absolute inset-x-0 top-0 z-30" style={{ background: "oklch(0.30 0.18 25)" }}>
+    <header
+      className="fixed inset-x-0 top-0 z-30 backdrop-blur-md"
+      style={{ background: "oklch(0.30 0.18 25 / 0.55)", borderBottom: "1px solid oklch(1 0 0 / 0.08)" }}
+    >
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-3">
         <a href="#" className="flex items-center gap-3">
           <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.35 0.18 25)" }} aria-hidden />
-          <span className="font-display text-base uppercase tracking-wider-sm text-foreground">Swiss Realplan</span>
+          <span className="font-display text-base uppercase text-foreground" style={{ letterSpacing: "-0.04em" }}>Swiss Realplan</span>
         </a>
         <nav className="hidden items-center gap-12 md:flex">
           <a href="#projects" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Current Projects</a>
@@ -73,6 +91,12 @@ function Header() {
           <a href="#contact" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Contact Us</a>
         </nav>
         <div className="w-[120px]" aria-hidden />
+      </div>
+      <div className="h-[2px] w-full bg-white/10">
+        <div
+          className="h-full transition-[width] duration-75"
+          style={{ width: `${progress}%`, background: "linear-gradient(90deg, oklch(0.55 0.22 25), oklch(0.7 0.24 25))" }}
+        />
       </div>
     </header>
   );
