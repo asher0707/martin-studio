@@ -112,17 +112,8 @@ function Hero() {
 }
 
 function Intro() {
-  return (
-    <section className="bg-deep px-8 py-32">
-      <div className="mx-auto flex max-w-6xl flex-col items-center text-center reveal">
-        <Diamond className="h-5 w-5 text-primary" />
-        <h2 className="mt-6 font-display text-foreground" style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)", lineHeight: 1.05 }}>
-          We are a conversion-led collective redefining the language of place,
-          <span className="italic text-foreground/70"> one quiet monolith at a time.</span>
-        </h2>
-      </div>
-    </section>
-  );
+function Intro() {
+  return null;
 }
 
 function CurrentProjects() {
