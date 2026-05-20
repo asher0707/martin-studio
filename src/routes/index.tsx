@@ -142,9 +142,7 @@ function Intro() {
 
 function CurrentProjects() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
-  const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
     let raf = 0;
@@ -157,9 +155,7 @@ function CurrentProjects() {
         const vh = window.innerHeight;
         const total = el.offsetHeight - vh;
         const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
-        const p = total > 0 ? scrolled / total : 0;
-        setProgress(p);
-        setActiveIdx(Math.min(projects.length - 1, Math.floor(p * projects.length * 0.9999)));
+        setProgress(total > 0 ? scrolled / total : 0);
       });
     };
     onScroll();
@@ -172,41 +168,35 @@ function CurrentProjects() {
     };
   }, []);
 
-  // Track is N * 100vw wide; max translate = -(N-1) * 100vw to land last card flush.
-  const translatePct = -(progress * (projects.length - 1) * (100 / projects.length));
+  // Slide track horizontally; show ~3 cards at a time.
+  const maxShift = Math.max(0, (projects.length - 3) * (100 / 3));
+  const translatePct = -(progress * maxShift);
 
   return (
     <section
       id="projects"
       ref={wrapRef}
-      className="relative bg-deep"
-      style={{ height: `${projects.length * 100}vh` }}
+      className="relative"
+      style={{ height: `${projects.length * 90}vh`, background: "linear-gradient(180deg, oklch(0.08 0.005 25) 0%, oklch(0.30 0.18 25) 55%, oklch(0.18 0.10 25) 100%)" }}
     >
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
+      <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-40" />
+
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
-        <div className="flex items-end justify-between px-8 pt-16 pb-8 md:px-14">
-          <div>
-            <span className="text-xs uppercase tracking-wider-sm text-primary">Current Projects</span>
-            <h2 className="mt-3 font-display text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: 1 }}>
-              In the studio <span className="italic text-foreground/70">now</span>
-            </h2>
-          </div>
-          <div className="hidden items-center gap-3 md:flex">
-            {projects.map((p, i) => (
-              <span
-                key={p.name}
-                className="h-[2px] w-10 transition-all duration-500"
-                style={{ background: i <= activeIdx ? "var(--gradient-red-black)" : "oklch(1 0 0 / 0.2)" }}
-              />
-            ))}
-          </div>
+        <div className="mx-auto max-w-3xl px-8 pt-24 text-center">
+          <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2.5rem, 5.5vw, 5rem)", lineHeight: 1 }}>
+            Current Projects
+          </h2>
+          <p className="mx-auto mt-8 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+          </p>
         </div>
 
-        <div className="relative flex-1 overflow-hidden px-8 md:px-14">
+        <div className="relative mt-12 flex-1 overflow-hidden">
           <div
-            ref={trackRef}
-            className="flex h-full will-change-transform"
+            className="flex h-full gap-6 px-8 will-change-transform md:px-14"
             style={{
-              width: `${projects.length * 100}%`,
+              width: `${(projects.length / 3) * 100}%`,
               transform: `translate3d(${translatePct}%, 0, 0)`,
               transition: "transform 0.15s linear",
             }}
@@ -214,31 +204,24 @@ function CurrentProjects() {
             {projects.map((p, i) => (
               <article
                 key={p.name}
-                className="relative flex h-full shrink-0 overflow-hidden rounded-3xl border border-white/10"
-                style={{ width: `${100 / projects.length}%`, marginRight: i < projects.length - 1 ? "1.5rem" : 0 }}
+                className="relative flex h-[70%] shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/30"
+                style={{ width: `calc(${100 / projects.length}% - 1.25rem)` }}
               >
-                <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.95), oklch(0.45 0.22 25 / 0.25), transparent)" }} />
-                <div className="relative z-10 flex h-full w-full flex-col justify-between p-10 md:p-14">
-                  <div className="flex items-start justify-between">
-                    <span className="rounded-full border border-foreground/30 px-3 py-1 text-[10px] uppercase tracking-wider-sm text-foreground/80">
-                      {String(i + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
-                    </span>
-                    <span className="text-xs uppercase tracking-wider-sm text-foreground/70">{p.location} · {p.year}</span>
-                  </div>
-                  <div className="max-w-xl">
-                    <h3 className="font-display text-foreground" style={{ fontSize: "clamp(2.5rem, 6vw, 6rem)", lineHeight: 0.95 }}>
-                      {p.name}
-                    </h3>
-                    <p className="mt-4 text-base text-foreground/80">{p.desc}</p>
-                    <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
-                      View case <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  </div>
+                <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
+                <div className="relative z-10 mt-auto w-full p-8">
+                  <span className="text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
+                  <h3 className="mt-2 font-display uppercase text-foreground" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2.25rem)", lineHeight: 1 }}>
+                    {p.name}
+                  </h3>
                 </div>
               </article>
             ))}
           </div>
+        </div>
+
+        <div className="mx-auto mb-10 h-[2px] w-64 overflow-hidden bg-white/15">
+          <div className="h-full" style={{ width: `${progress * 100}%`, background: "var(--gradient-red-black)" }} />
         </div>
       </div>
     </section>
