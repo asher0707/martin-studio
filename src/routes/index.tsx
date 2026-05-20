@@ -121,29 +121,39 @@ function CurrentProjects() {
 
   useEffect(() => {
     let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const el = wrapRef.current;
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const vh = window.innerHeight;
-        const total = el.offsetHeight - vh;
-        const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
-        setProgress(total > 0 ? scrolled / total : 0);
-      });
+    let target = 0;
+    let current = 0;
+    let running = true;
+
+    const measure = () => {
+      const el = wrapRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const total = el.offsetHeight - vh;
+      const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
+      target = total > 0 ? scrolled / total : 0;
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+
+    const tick = () => {
+      current += (target - current) * 0.08; // smooth lerp
+      setProgress(current);
+      if (running) raf = requestAnimationFrame(tick);
+    };
+
+    measure();
+    current = target;
+    raf = requestAnimationFrame(tick);
+    window.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      running = false;
+      window.removeEventListener("scroll", measure);
+      window.removeEventListener("resize", measure);
       cancelAnimationFrame(raf);
     };
   }, []);
 
-  // Slide track horizontally; show ~3 cards at a time.
   const maxShift = Math.max(0, (projects.length - 3) * (100 / 3));
   const translatePct = -(progress * maxShift);
 
@@ -173,16 +183,18 @@ function CurrentProjects() {
             style={{
               width: `${(projects.length / 3) * 100}%`,
               transform: `translate3d(${translatePct}%, 0, 0)`,
-              transition: "transform 0.15s linear",
             }}
           >
             {projects.map((p, i) => (
-              <article
+              <a
                 key={p.name}
-                className="relative flex h-[70%] shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/30"
+                href={p.href}
+                target={p.href.startsWith("http") ? "_blank" : undefined}
+                rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="group relative flex h-[70%] shrink-0 overflow-hidden border border-white/15 bg-black/30"
                 style={{ width: `calc(${100 / projects.length}% - 1.25rem)` }}
               >
-                <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90" />
+                <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
                 <div className="relative z-10 mt-auto w-full p-8">
                   <span className="text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
@@ -190,7 +202,7 @@ function CurrentProjects() {
                     {p.name}
                   </h3>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </div>
