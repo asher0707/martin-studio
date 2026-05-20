@@ -46,8 +46,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Monolith — Architecture for the modern nomad" },
+      { title: "martin studio" },
       { name: "description", content: "Monolith is a conversion-led architecture collective designing inward journeys for the soul." },
+      { property: "og:title", content: "martin studio" },
+      { name: "twitter:title", content: "martin studio" },
+      { property: "og:description", content: "Monolith is a conversion-led architecture collective designing inward journeys for the soul." },
+      { name: "twitter:description", content: "Monolith is a conversion-led architecture collective designing inward journeys for the soul." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/edb38a78-f762-4591-b37d-8bf938875d82/id-preview-3441e4d1--7f22e041-b941-4112-b541-750f1703a9b8.lovable.app-1779307764535.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/edb38a78-f762-4591-b37d-8bf938875d82/id-preview-3441e4d1--7f22e041-b941-4112-b541-750f1703a9b8.lovable.app-1779307764535.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
