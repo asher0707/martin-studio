@@ -53,7 +53,7 @@ function Loader() {
         muted
         playsInline
         onEnded={() => setHide(true)}
-        className="h-full w-full object-cover"
+        className="h-full w-full object-contain md:object-cover"
       />
     </div>
   );
@@ -61,7 +61,7 @@ function Loader() {
 
 function Header() {
   return (
-    <header className="absolute inset-x-0 top-0 z-30">
+    <header className="absolute inset-x-0 top-0 z-30" style={{ background: "linear-gradient(180deg, oklch(0.35 0.20 25 / 0.95), oklch(0.20 0.14 25 / 0.55) 70%, transparent)" }}>
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-6">
         <a href="#" className="flex items-center gap-3">
           <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.35 0.18 25)" }} aria-hidden />
@@ -85,18 +85,17 @@ function Hero() {
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <iframe
             title="Hero background video"
-            src="https://www.youtube.com/embed/jK9SGbX1KaE?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=jK9SGbX1KaE"
+            src="https://www.youtube.com/embed/jK9SGbX1KaE?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=jK9SGbX1KaE&disablekb=1&iv_load_policy=3&fs=0"
             allow="autoplay; encrypted-media; picture-in-picture"
-            allowFullScreen
-            className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
           />
         </div>
         
 
         <div className="relative z-10 flex h-full flex-col px-6 text-center">
-          <h1 className="mt-8 font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)", lineHeight: 0.95 }}>
-            <span className="block font-semibold uppercase tracking-tight">Inward Journey</span>
-            <span className="mt-2 block italic">for the Soul</span>
+          <h1 className="mt-2 font-display text-foreground animate-fade-up" style={{ lineHeight: 0.95 }}>
+            <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)" }}>Inward Journey</span>
+            <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)" }}>for the Soul</span>
           </h1>
 
           <div className="mt-auto flex flex-col items-center pb-10">
