@@ -53,7 +53,7 @@ function Loader() {
         muted
         playsInline
         loop
-        className="h-40 w-40 object-contain"
+        className="h-full w-full object-cover"
       />
     </div>
   );
@@ -92,19 +92,21 @@ function Hero() {
         </div>
         
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)", lineHeight: 0.95 }}>
+        <div className="relative z-10 flex h-full flex-col px-6 text-center">
+          <h1 className="mt-8 font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)", lineHeight: 0.95 }}>
             <span className="block font-semibold uppercase tracking-tight">Inward Journey</span>
             <span className="mt-2 block italic">for the Soul</span>
           </h1>
 
-          <p className="mx-auto mt-12 max-w-md text-sm text-foreground/85 animate-fade-in">
-            #Where the precision of the grid meets the vitality of the shore. A high-scale context for the modern nomad to recharge.
-          </p>
-          <a href="#projects" className="mt-10 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-primary">
-            Scroll Down
-            <ChevronDown className="h-5 w-5 animate-bounce-soft" />
-          </a>
+          <div className="mt-auto flex flex-col items-center pb-10">
+            <p className="mx-auto max-w-md text-sm text-foreground/85 animate-fade-in">
+              #Where the precision of the grid meets the vitality of the shore. A high-scale context for the modern nomad to recharge.
+            </p>
+            <a href="#projects" className="mt-6 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-primary">
+              Scroll Down
+              <ChevronDown className="h-5 w-5 animate-bounce-soft" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
