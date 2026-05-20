@@ -61,7 +61,7 @@ function Loader() {
 
 function Header() {
   return (
-    <header className="absolute inset-x-0 top-0 z-30" style={{ background: "linear-gradient(180deg, oklch(0.35 0.20 25 / 0.95), oklch(0.20 0.14 25 / 0.55) 70%, transparent)" }}>
+    <header className="absolute inset-x-0 top-0 z-30" style={{ background: "oklch(0.30 0.18 25)" }}>
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-6">
         <a href="#" className="flex items-center gap-3">
           <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.35 0.18 25)" }} aria-hidden />
@@ -93,13 +93,12 @@ function Hero() {
         
 
         <div className="relative z-10 flex h-full flex-col px-6 text-center">
-          <h1 className="mt-2 font-display text-foreground animate-fade-up" style={{ lineHeight: 0.95 }}>
-            <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)" }}>Inward Journey</span>
-            <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)" }}>for the Soul</span>
-          </h1>
-
           <div className="mt-auto flex flex-col items-center pb-10">
-            <p className="mx-auto max-w-md text-sm text-foreground/85 animate-fade-in">
+            <h1 className="font-display text-foreground animate-fade-up" style={{ lineHeight: 0.95 }}>
+              <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)" }}>Inward Journey</span>
+              <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)" }}>for the Soul</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-md text-sm text-foreground/85 animate-fade-in">
               #Where the precision of the grid meets the vitality of the shore. A high-scale context for the modern nomad to recharge.
             </p>
             <a href="#projects" className="mt-6 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-primary">
