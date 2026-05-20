@@ -93,16 +93,12 @@ function Hero() {
         
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(3rem, 9vw, 9rem)", lineHeight: 0.95 }}>
+          <h1 className="font-display text-foreground animate-fade-up" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)", lineHeight: 0.95 }}>
             <span className="block font-semibold uppercase tracking-tight">Inward Journey</span>
             <span className="mt-2 block italic">for the Soul</span>
           </h1>
-          <a href="#projects" className="group mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground animate-fade-up" style={{ background: "var(--gradient-red-black)" }}>
-            Explore products
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
-          </a>
 
-          <p className="mx-auto mt-16 max-w-md text-sm text-foreground/85 animate-fade-in">
+          <p className="mx-auto mt-12 max-w-md text-sm text-foreground/85 animate-fade-in">
             #Where the precision of the grid meets the vitality of the shore. A high-scale context for the modern nomad to recharge.
           </p>
           <a href="#projects" className="mt-10 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-primary">
