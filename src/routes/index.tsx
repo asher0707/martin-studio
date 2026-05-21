@@ -142,6 +142,8 @@ function Intro() {
 function CurrentProjects() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const isMobile = useIsMobile();
+
 
   useEffect(() => {
     let raf = 0;
