@@ -78,19 +78,18 @@ function Header() {
   return (
     <header
       className="fixed inset-x-0 top-0 z-50 backdrop-blur-xl"
-      style={{ background: "oklch(0.45 0.02 260 / 0.82)", borderBottom: "1px solid oklch(1 1 0.01 / 0.12)", boxShadow: "0 4px 24px oklch(0 0 0 / 0.15)" }}
+      style={{ background: "oklch(0.35 0.18 25 / 0.82)", borderBottom: "1px solid oklch(1 0.05 25 / 0.18)", boxShadow: "0 4px 24px oklch(0 0 0 / 0.25)" }}
     >
-      <div className="mx-auto flex max-w-[1800px] items-center justify-between px-8 py-3">
-        <a href="#" className="flex items-center gap-3">
-          <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.35 0.18 25)" }} aria-hidden />
-          <span className="font-display text-base uppercase text-foreground" style={{ letterSpacing: "-0.04em" }}>Swiss Realplan</span>
+      <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-3 px-5 py-3 md:px-8">
+        <a href="#" className="flex items-center gap-3 shrink-0">
+          <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.98 0.005 25)" }} aria-hidden />
+          <span className="font-display text-sm uppercase text-foreground md:text-base" style={{ letterSpacing: "-0.04em" }}>Swiss Realplan</span>
         </a>
-        <nav className="hidden items-center gap-12 md:flex">
-          <a href="#projects" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Current Projects</a>
-          <a href="#portfolio" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Portfolio</a>
-          <a href="#contact" className="text-xs font-medium uppercase tracking-wider-sm text-foreground/85 transition hover:text-primary">Contact Us</a>
+        <nav className="flex items-center gap-4 md:gap-12">
+          <a href="#projects" className="text-[10px] font-medium uppercase tracking-wider-sm text-foreground/90 transition hover:text-foreground md:text-xs">Projects</a>
+          <a href="#portfolio" className="text-[10px] font-medium uppercase tracking-wider-sm text-foreground/90 transition hover:text-foreground md:text-xs">Portfolio</a>
+          <a href="#contact" className="text-[10px] font-medium uppercase tracking-wider-sm text-foreground/90 transition hover:text-foreground md:text-xs">Contact</a>
         </nav>
-        <div className="w-[120px]" aria-hidden />
       </div>
       <div className="h-[2px] w-full bg-white/10">
         <div
