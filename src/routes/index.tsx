@@ -9,6 +9,7 @@ import visp from "@/assets/proj-visp.jpg";
 import contactImg from "@/assets/contact.jpg";
 import logoImg from "@/assets/logo.png";
 import teamImg from "@/assets/team.png";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Route = createFileRoute("/")({
   component: Home,
