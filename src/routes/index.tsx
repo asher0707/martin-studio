@@ -184,6 +184,33 @@ function CurrentProjects() {
   const maxShift = Math.max(0, (projects.length - 3) * (100 / 3));
   const translatePct = -(progress * maxShift);
 
+  if (isMobile) {
+    return (
+      <section id="projects" className="relative" style={{ background: "linear-gradient(180deg, oklch(0.08 0.005 25) 0%, oklch(0.30 0.18 25) 55%, oklch(0.18 0.10 25) 100%)" }}>
+        <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
+        <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-40" />
+        <div className="relative mx-auto max-w-3xl px-6 pt-20 text-center">
+          <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2rem, 9vw, 3rem)", lineHeight: 1 }}>Current Projects</h2>
+          <p className="mx-auto mt-6 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div className="relative mt-10 flex flex-col gap-5 px-5 pb-16">
+          {projects.map((p, i) => (
+            <a key={p.name} href={p.href} target={p.href.startsWith("http") ? "_blank" : undefined} rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined} className="group relative block aspect-[4/5] overflow-hidden border border-white/15 bg-black/30">
+              <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover opacity-90" loading={i === 0 ? "eager" : "lazy"} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
+              <div className="relative z-10 mt-auto flex h-full w-full flex-col justify-end p-6">
+                <span className="text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
+                <h3 className="mt-2 font-display uppercase text-foreground" style={{ fontSize: "1.75rem", lineHeight: 1 }}>{p.name}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="projects"
