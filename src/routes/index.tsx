@@ -83,7 +83,7 @@ function Header() {
   }, []);
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 backdrop-blur-xl"
+      className="fixed inset-x-0 top-0 z-[200] backdrop-blur-xl"
       style={{ background: "oklch(0.35 0.18 25 / 0.82)", borderBottom: "1px solid oklch(1 0.05 25 / 0.18)", boxShadow: "0 4px 24px oklch(0 0 0 / 0.25)" }}
     >
       <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-3 px-5 py-3 md:px-8">
