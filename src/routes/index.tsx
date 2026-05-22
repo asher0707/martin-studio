@@ -39,6 +39,10 @@ const gallery = [
 
 function Loader() {
   const [hide, setHide] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setHide(true), 3500);
+    return () => clearTimeout(t);
+  }, []);
   return (
     <div
       className="fixed inset-0 z-[100] grid place-items-center bg-deep"
@@ -54,6 +58,7 @@ function Loader() {
         muted
         playsInline
         onEnded={() => setHide(true)}
+        onError={() => setHide(true)}
         className="h-full w-full object-contain md:object-cover"
       />
     </div>
