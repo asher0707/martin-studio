@@ -202,11 +202,21 @@ function CurrentProjects() {
         </div>
         <div className="relative mt-10 flex flex-col gap-5 px-5 pb-16">
           {projects.map((p, i) => (
-            <a key={p.name} href={p.href} target={p.href.startsWith("http") ? "_blank" : undefined} rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined} className="group relative block aspect-[4/5] overflow-hidden border border-white/15 bg-black/30">
-              <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover opacity-90" loading={i === 0 ? "eager" : "lazy"} />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
-              <div className="relative z-10 mt-auto flex h-full w-full flex-col justify-end p-6">
-                <span className="text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
+            <a
+              key={p.name}
+              href={p.href}
+              target={p.href.startsWith("http") ? "_blank" : undefined}
+              rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="group relative block aspect-[4/5] overflow-hidden rounded-2xl border border-white/20 backdrop-blur-xl"
+              style={{
+                background: "oklch(1 0 0 / 0.06)",
+                boxShadow: "0 8px 32px oklch(0 0 0 / 0.35), inset 0 1px 0 oklch(1 0 0 / 0.15)",
+              }}
+            >
+              <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover opacity-80" loading={i === 0 ? "eager" : "lazy"} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), oklch(0.08 0.01 25 / 0.15) 60%)" }} />
+              <div className="absolute inset-x-3 bottom-3 rounded-xl border border-white/15 p-5 backdrop-blur-md" style={{ background: "oklch(1 0 0 / 0.08)" }}>
+                <span className="text-[10px] uppercase tracking-wider-sm text-foreground/80">{String(i + 1).padStart(2, "0")} · {p.location}</span>
                 <h3 className="mt-2 font-display uppercase text-foreground" style={{ fontSize: "1.75rem", lineHeight: 1 }}>{p.name}</h3>
               </div>
             </a>
