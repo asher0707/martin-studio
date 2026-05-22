@@ -200,14 +200,14 @@ function CurrentProjects() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div className="relative mt-10 flex flex-col gap-5 px-5 pb-16">
+        <div className="relative mt-10 flex flex-col items-center gap-5 px-5 pb-16">
           {projects.map((p, i) => (
             <a
               key={p.name}
               href={p.href}
               target={p.href.startsWith("http") ? "_blank" : undefined}
               rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group relative block aspect-[4/5] overflow-hidden rounded-2xl border border-white/20 backdrop-blur-xl"
+              className="group relative block w-[76%] aspect-[4/5] overflow-hidden rounded-2xl border border-white/20 backdrop-blur-xl"
               style={{
                 background: "oklch(1 0 0 / 0.06)",
                 boxShadow: "0 8px 32px oklch(0 0 0 / 0.35), inset 0 1px 0 oklch(1 0 0 / 0.15)",
