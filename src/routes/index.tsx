@@ -9,6 +9,7 @@ import visp from "@/assets/proj-visp.jpg";
 import contactImg from "@/assets/contact.jpg";
 import logoImg from "@/assets/logo.png";
 import teamImg from "@/assets/team.png";
+import architectBg from "@/assets/architect-bg.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Route = createFileRoute("/")({
@@ -114,7 +115,7 @@ function Hero() {
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <iframe
             title="Hero background video"
-            src="https://www.youtube.com/embed/OC14x2ggbdc?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=OC14x2ggbdc&disablekb=1&iv_load_policy=3&fs=0"
+            src="https://www.youtube.com/embed/EaDR6ygHsO0?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=EaDR6ygHsO0&disablekb=1&iv_load_policy=3&fs=0"
             allow="autoplay; encrypted-media; picture-in-picture"
             className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
           />
@@ -233,6 +234,10 @@ function CurrentProjects() {
       className="relative"
       style={{ height: `${projects.length * 90}vh`, background: "linear-gradient(180deg, oklch(0.08 0.005 25) 0%, oklch(0.30 0.18 25) 55%, oklch(0.18 0.10 25) 100%)" }}
     >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-25 mix-blend-screen"
+        style={{ backgroundImage: `url(${architectBg})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+      />
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
       <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-40" />
 
@@ -260,8 +265,8 @@ function CurrentProjects() {
                 href={p.href}
                 target={p.href.startsWith("http") ? "_blank" : undefined}
                 rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group relative flex h-[70%] shrink-0 overflow-hidden border border-white/15 bg-black/30"
-                style={{ width: `calc(${100 / projects.length}% - 1.25rem)` }}
+                className="group relative flex h-[70%] shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/30"
+                style={{ width: `calc(${100 / projects.length}% - 1.25rem)`, boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
               >
                 <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
