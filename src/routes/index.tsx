@@ -207,10 +207,10 @@ function CurrentProjects() {
               href={p.href}
               target={p.href.startsWith("http") ? "_blank" : undefined}
               rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group relative block w-[76%] aspect-[4/5] overflow-hidden rounded-2xl border border-white/20 backdrop-blur-xl"
+              className="group relative block w-[76%] aspect-[4/5] overflow-hidden rounded-2xl border border-white/20 backdrop-blur-xl transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_12px_40px_oklch(1_ 0 0 / 0.35),inset_1px_1px_0_oklch(1_0_0/0.2)]"
               style={{
                 background: "oklch(1 0 0 / 0.06)",
-                boxShadow: "0 8px 32px oklch(0 0 0 / 0.35), inset 0 1px 0 oklch(1 0 0 / 0.15)",
+                boxShadow: "0 8px 32px oklch(1 0 0 / 0.35), inset 0 1px 0 oklch(1 0 0 / 0.15)",
               }}
             >
               <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover opacity-80" loading={i === 0 ? "eager" : "lazy"} />
