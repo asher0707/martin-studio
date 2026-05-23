@@ -46,11 +46,12 @@ function Loader() {
   }, []);
   return (
     <div
-      className="fixed inset-0 z-[100] grid place-items-center bg-deep"
+      className="fixed inset-0 z-[100] grid h-screen w-screen place-items-center overflow-hidden bg-deep"
       style={{
-        transform: hide ? "translateY(-100%)" : "translateY(0)",
-        transition: "transform 1000ms cubic-bezier(0.77, 0, 0.175, 1)",
+        transform: hide ? "translate3d(0, -105vh, 0)" : "translate3d(0, 0, 0)",
+        transition: "transform 1100ms cubic-bezier(0.77, 0, 0.175, 1)",
         pointerEvents: hide ? "none" : "auto",
+        willChange: "transform",
       }}
     >
       <video
