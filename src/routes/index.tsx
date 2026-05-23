@@ -192,9 +192,8 @@ function CurrentProjects() {
 
   if (isMobile) {
     return (
-      <section id="projects" className="relative" style={{ background: "linear-gradient(180deg, oklch(0.08 0.005 25) 0%, oklch(0.30 0.18 25) 55%, oklch(0.18 0.10 25) 100%)" }}>
-        <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
-        <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-40" />
+      <section id="projects" className="relative isolate overflow-hidden" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0.45 0.22 25) 0%, oklch(0.28 0.18 25) 45%, oklch(0.12 0.08 25) 100%)" }}>
+        <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
         <div className="relative mx-auto max-w-3xl px-6 pt-20 text-center">
           <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2rem, 9vw, 3rem)", lineHeight: 1 }}>Current Projects</h2>
           <p className="mx-auto mt-6 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
