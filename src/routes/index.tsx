@@ -68,40 +68,77 @@ function Loader() {
 
 function Header() {
   const [progress, setProgress] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+  const [ready, setReady] = useState(false);
   useEffect(() => {
+    const t = setTimeout(() => setReady(true), 3600);
     const onScroll = () => {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
       setProgress(total > 0 ? (h.scrollTop / total) * 100 : 0);
+      setScrolled(h.scrollTop > 40);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
+      clearTimeout(t);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
   }, []);
+  const links = [
+    { href: "#projects", label: "Projects" },
+    { href: "#portfolio", label: "Portfolio" },
+    { href: "#contact", label: "Contact" },
+  ];
   return (
     <header
-      className="fixed inset-x-0 top-0 z-[200] backdrop-blur-xl"
-      style={{ background: "oklch(0.35 0.18 25 / 0.82)", borderBottom: "1px solid oklch(1 0.05 25 / 0.18)", boxShadow: "0 4px 24px oklch(0 0 0 / 0.25)" }}
+      className="fixed inset-x-0 top-0 z-[200] transition-all duration-700 ease-out"
+      style={{
+        opacity: ready ? 1 : 0,
+        transform: ready ? "translateY(0)" : "translateY(-100%)",
+        pointerEvents: ready ? "auto" : "none",
+        background: scrolled
+          ? "linear-gradient(180deg, oklch(0.12 0.04 25 / 0.78) 0%, oklch(0.08 0.03 25 / 0.62) 100%)"
+          : "linear-gradient(180deg, oklch(0 0 0 / 0.55) 0%, oklch(0 0 0 / 0) 100%)",
+        backdropFilter: scrolled ? "blur(16px) saturate(140%)" : "blur(6px)",
+        WebkitBackdropFilter: scrolled ? "blur(16px) saturate(140%)" : "blur(6px)",
+        borderBottom: scrolled ? "1px solid oklch(1 0 0 / 0.08)" : "1px solid transparent",
+      }}
     >
-      <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-3 px-5 py-3 md:px-8">
-        <a href="#" className="flex items-center gap-3 shrink-0">
-          <span style={{ display: "inline-block", width: 8, height: 14, background: "oklch(0.98 0.005 25)" }} aria-hidden />
-          <span className="font-display text-sm uppercase text-foreground md:text-base" style={{ letterSpacing: "-0.04em" }}>Swiss Realplan</span>
+      <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-3 px-6 py-4 md:px-10 md:py-5">
+        <a href="#" className="group flex items-center gap-3 shrink-0">
+          <span
+            className="transition-all duration-500 group-hover:rotate-45"
+            style={{ display: "inline-block", width: 10, height: 10, background: "oklch(0.62 0.24 25)", boxShadow: "0 0 14px oklch(0.62 0.24 25 / 0.7)" }}
+            aria-hidden
+          />
+          <span className="font-display text-[13px] uppercase text-foreground md:text-sm" style={{ letterSpacing: "0.22em", fontWeight: 500 }}>
+            Swiss Realplan
+          </span>
         </a>
-        <nav className="flex items-center gap-4 md:gap-12">
-          <a href="#projects" className="text-[10px] font-medium uppercase tracking-wider-sm text-foreground/90 transition hover:text-foreground md:text-xs">Projects</a>
-          <a href="#portfolio" className="text-[10px] font-medium uppercase tracking-wider-sm text-foreground/90 transition hover:text-foreground md:text-xs">Portfolio</a>
-          <a href="#contact" className="text-[10px] font-medium uppercase tracking-wider-sm text-foreground/90 transition hover:text-foreground md:text-xs">Contact</a>
+        <nav className="flex items-center gap-6 md:gap-10">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="group relative text-[10px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground md:text-[11px]"
+              style={{ letterSpacing: "0.2em" }}
+            >
+              {l.label}
+              <span
+                className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
+                style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
+              />
+            </a>
+          ))}
         </nav>
       </div>
-      <div className="h-[2px] w-full bg-white/10">
+      <div className="h-px w-full" style={{ background: "oklch(1 0 0 / 0.06)" }}>
         <div
           className="h-full transition-[width] duration-75"
-          style={{ width: `${progress}%`, background: "linear-gradient(90deg, oklch(0.55 0.22 25), oklch(0.7 0.24 25))" }}
+          style={{ width: `${progress}%`, background: "linear-gradient(90deg, oklch(0.55 0.22 25), oklch(0.78 0.2 25))" }}
         />
       </div>
     </header>
@@ -110,8 +147,8 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative bg-deep px-5 pt-28 pb-10">
-      <div className="relative mx-auto h-[88vh] max-h-[920px] min-h-[640px] w-full overflow-hidden rounded-3xl">
+    <section className="relative bg-deep">
+      <div className="relative mx-auto h-screen min-h-[640px] w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <iframe
             title="Hero background video"
