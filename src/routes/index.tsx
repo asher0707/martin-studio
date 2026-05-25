@@ -233,9 +233,9 @@ function CurrentProjects() {
       <section id="projects" className="relative isolate overflow-hidden" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
         <div className="relative mx-auto max-w-3xl px-6 pt-20 text-center">
-          <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2rem, 9vw, 3rem)", lineHeight: 1 }}>Current Projects</h2>
+          <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2rem, 9vw, 3rem)", lineHeight: 1 }}>Aktuelle Projekte</h2>
           <p className="mx-auto mt-6 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
-Shaping the alpine landscape with precision and purpose. Explore our ongoing architectural and visualization projects across Switzerland, where timeless materiality meets contemporary structural design.
+Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlose Ästhetik. Entdecken Sie unsere aktuellen Architektur- und Visualisierungsprojekte in der ganzen Schweiz — wo nachhaltige Materialien, moderne Formensprache und funktionales Design zu einzigartigen Lebensräumen verschmelzen.
           </p>
         </div>
         <div className="relative mt-10 flex flex-col items-center gap-5 px-5 pb-16">
