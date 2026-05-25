@@ -18,9 +18,9 @@ export const Route = createFileRoute("/")({
 
 const projects = [
   { name: "Saas Fee", year: "2023", location: "Valais, CH", img: saasFee, desc: "An alpine retreat carved into the silence of the snowline.", href: "https://alpenchaletdomino.com/" },
-  { name: "Eggerberg", year: "2024", location: "Brig, CH", img: eggerberg, desc: "A cantilevered glass volume floating above the granite shelf.", href: "https://soleilhome.info/" },
-  { name: "Erb", year: "2024", location: "Zermatt, CH", img: erb, desc: "Stone, timber and storm light — a shelter that listens.", href: "https://erbhome.info/" },
-  { name: "Visp", year: "2025", location: "Rhone Valley, CH", img: visp, desc: "Sharp geometries meeting the soft violet of dusk.", href: "#" },
+  { name: "Eggerberg", year: "2024", location: "Valais, CH", img: eggerberg, desc: "A cantilevered glass volume floating above the granite shelf.", href: "https://soleilhome.info/" },
+  { name: "Erb", year: "2024", location: "Visp, CH", img: erb, desc: "Stone, timber and storm light — a shelter that listens.", href: "https://erbhome.info/" },
+  { name: "Visp", year: "2025", location: "Valais, CH", img: visp, desc: "Sharp geometries meeting the soft violet of dusk.", href: "#" },
 ];
 
 const gallery = [
