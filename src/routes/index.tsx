@@ -322,7 +322,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
 
 function Portfolio() {
   return (
-    <section id="portfolio" className="relative bg-deep py-28" style={{ paddingLeft: 50, paddingRight: 50 }}>
+    <section id="portfolio" className="relative bg-deep py-20 px-5 sm:px-8 md:px-10 lg:px-[50px] md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-20" />
       <div className="relative mx-auto mb-12 flex max-w-[1800px] flex-col gap-6 reveal md:flex-row md:items-end md:justify-between">
         <div>
@@ -336,7 +336,7 @@ function Portfolio() {
         </p>
       </div>
 
-      <div className="relative mx-auto grid max-w-[1800px] grid-cols-2 gap-0 md:grid-cols-4 lg:grid-cols-6">
+      <div className="relative mx-auto grid max-w-[1800px] grid-cols-2 gap-0 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {Array.from({ length: 30 }).map((_, i) => {
           const tags = ["Residential", "Wellness", "Hospitality", "Workspace"];
           const title = `Project ${String(i + 1).padStart(2, "0")}`;
@@ -377,7 +377,7 @@ function Portfolio() {
 
 function Contact() {
   return (
-    <section id="contact" className="bg-deep px-8 py-28">
+    <section id="contact" className="bg-deep px-5 sm:px-8 py-20 md:py-28">
       <div className="mx-auto grid max-w-[1600px] items-center gap-10 md:grid-cols-2 md:gap-16">
         <div className="reveal relative overflow-hidden rounded-3xl" style={{ background: "var(--gradient-red-black)" }}>
           <img src={teamImg} alt="Our team" width={1280} height={1280} loading="lazy" className="h-full w-full object-contain" />
