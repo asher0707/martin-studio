@@ -377,7 +377,7 @@ function Portfolio() {
 
 function Contact() {
   return (
-    <section id="contact" className="bg-deep px-8 py-28">
+    <section id="contact" className="bg-deep px-5 sm:px-8 py-20 md:py-28">
       <div className="mx-auto grid max-w-[1600px] items-center gap-10 md:grid-cols-2 md:gap-16">
         <div className="reveal relative overflow-hidden rounded-3xl" style={{ background: "var(--gradient-red-black)" }}>
           <img src={teamImg} alt="Our team" width={1280} height={1280} loading="lazy" className="h-full w-full object-contain" />
