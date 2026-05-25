@@ -322,7 +322,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
 
 function Portfolio() {
   return (
-    <section id="portfolio" className="relative bg-deep py-28" style={{ paddingLeft: 50, paddingRight: 50 }}>
+    <section id="portfolio" className="relative bg-deep py-20 px-5 sm:px-8 md:px-10 lg:px-[50px] md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-20" />
       <div className="relative mx-auto mb-12 flex max-w-[1800px] flex-col gap-6 reveal md:flex-row md:items-end md:justify-between">
         <div>
