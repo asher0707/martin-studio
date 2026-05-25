@@ -167,7 +167,7 @@ function Hero() {
               <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)", textShadow: "0 2px 20px rgba(0,0,0,1)" }}>Schweizer Präzision trifft auf visionäres Design</span>
             </h1>
             <p className="mx-auto mt-6 max-w-md text-sm text-foreground/85 animate-fade-in">
-              Where Swiss engineering meets intentional design. We create high-end, sustainable spaces that honor local materials while redefining modern mountain living.
+              Wir erschaffen hochwertige, nachhaltige Architektur mit natürlichen Materialien und klaren Konzepten — für Räume, die Ästhetik, Funktion und modernes Wohnen harmonisch vereinen.
             </p>
             <a href="#projects" className="mt-6 flex flex-col items-center gap-2 text-xs uppercase tracking-wider-sm text-foreground/80 transition hover:text-primary">
               Scroll Down
