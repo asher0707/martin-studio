@@ -235,7 +235,7 @@ function CurrentProjects() {
         <div className="relative mx-auto max-w-3xl px-6 pt-20 text-center">
           <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2rem, 9vw, 3rem)", lineHeight: 1 }}>Current Projects</h2>
           <p className="mx-auto mt-6 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Shaping the alpine landscape with precision and purpose. Explore our ongoing architectural and visualization projects across Switzerland, where timeless materiality meets contemporary structural design.
           </p>
         </div>
         <div className="relative mt-10 flex flex-col items-center gap-5 px-5 pb-16">
@@ -278,7 +278,7 @@ function CurrentProjects() {
             Current Projects
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+Shaping the alpine landscape with precision and purpose. Explore our ongoing architectural and visualization projects across Switzerland, where timeless materiality meets contemporary structural design.
           </p>
         </div>
 
