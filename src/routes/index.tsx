@@ -163,7 +163,7 @@ function Hero() {
         <div className="relative z-10 flex h-full flex-col px-6 text-center">
           <div className="mt-auto flex flex-col items-center pb-10">
             <h1 className="font-display text-foreground animate-fade-up" style={{ lineHeight: 1.05, textShadow: "0 3px 28px rgba(0,0,0,0.75)" }}>
-              <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)" }}>ARCHITECTURE OF PRECISION</span>
+              <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)" }}>zeitlose Architektur</span>
               <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)", textShadow: "0 2px 20px rgba(0,0,0,1)" }}>Crafted for the Alpine Landscape</span>
             </h1>
             <p className="mx-auto mt-6 max-w-md text-sm text-foreground/85 animate-fade-in">
