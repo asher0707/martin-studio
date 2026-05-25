@@ -278,7 +278,7 @@ function CurrentProjects() {
             Current Projects
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+Shaping the alpine landscape with precision and purpose. Explore our ongoing architectural and visualization projects across Switzerland, where timeless materiality meets contemporary structural design.
           </p>
         </div>
 
