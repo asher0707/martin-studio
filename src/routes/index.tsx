@@ -336,7 +336,7 @@ function Portfolio() {
         </p>
       </div>
 
-      <div className="relative mx-auto grid max-w-[1800px] grid-cols-2 gap-0 md:grid-cols-4 lg:grid-cols-6">
+      <div className="relative mx-auto grid max-w-[1800px] grid-cols-2 gap-0 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {Array.from({ length: 30 }).map((_, i) => {
           const tags = ["Residential", "Wellness", "Hospitality", "Workspace"];
           const title = `Project ${String(i + 1).padStart(2, "0")}`;
