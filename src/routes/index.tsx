@@ -275,10 +275,10 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
         <div className="mx-auto max-w-3xl px-8 pt-24 text-center">
           <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2.5rem, 5.5vw, 5rem)", lineHeight: 1 }}>
-            Current Projects
+            Aktuelle Projekte
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
-Shaping the alpine landscape with precision and purpose. Explore our ongoing architectural and visualization projects across Switzerland, where timeless materiality meets contemporary structural design.
+Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlose Ästhetik. Entdecken Sie unsere aktuellen Architektur- und Visualisierungsprojekte in der ganzen Schweiz — wo nachhaltige Materialien, moderne Formensprache und funktionales Design zu einzigartigen Lebensräumen verschmelzen.
           </p>
         </div>
 
