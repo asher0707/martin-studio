@@ -341,14 +341,24 @@ function Portfolio() {
           const tags = ["Residential", "Wellness", "Hospitality", "Workspace"];
           const title = `Project ${String(i + 1).padStart(2, "0")}`;
           const tag = tags[i % tags.length];
+          const eager = i < 6;
           return (
             <a
               key={i}
               href="#"
-              className="group relative aspect-square overflow-hidden reveal"
-              style={{ transitionDelay: `${(i % 6) * 60}ms` }}
+              className="group relative aspect-square overflow-hidden reveal bg-black/40"
+              style={{ transitionDelay: `${(i % 6) * 60}ms`, contentVisibility: eager ? "visible" : "auto", containIntrinsicSize: "400px 400px" }}
             >
-              <img src={`/cards/card${i + 1}.jpeg`} alt={title} width={800} height={800} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={`/cards/card${i + 1}.jpeg`}
+                alt={title}
+                width={800}
+                height={800}
+                loading={eager ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={eager ? "high" : "low"}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
               <div
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{ background: "var(--gradient-hover)" }}
