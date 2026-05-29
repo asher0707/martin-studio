@@ -278,7 +278,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
               }}
             >
               <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover opacity-80" loading={i === 0 ? "eager" : "lazy"} />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), oklch(0.08 0.01 25 / 0.15) 60%)" }} />
+              <div className="absolute inset-0 py-[20px] px-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), oklch(0.08 0.01 25 / 0.15) 60%)" }} />
               <div className="absolute inset-x-2 bottom-2 rounded-xl border border-white/15 p-3 backdrop-blur-md" style={{ background: "oklch(1 0 0 / 0.08)" }}>
                 <span className="text-[9px] uppercase tracking-wider-sm text-foreground/80">{String(i + 1).padStart(2, "0")} · {p.location}</span>
                 <h3 className="mt-1 font-display uppercase text-foreground" style={{ fontSize: "1.4rem", lineHeight: 1 }}>{p.name}</h3>
@@ -330,7 +330,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
                 style={{ width: `calc(${100 / projects.length}% - 1.25rem)`, boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
               >
                 <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
+                <div className="absolute inset-0 py-[20px] px-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
                 <div className="relative z-10 mt-auto w-full p-5 sm:p-6 md:p-8">
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
                   <h3 className="mt-2 font-display uppercase text-foreground" style={{ fontSize: "clamp(1.1rem, 2.4vw, 2.25rem)", lineHeight: 1 }}>
