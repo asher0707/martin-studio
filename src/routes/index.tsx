@@ -72,6 +72,7 @@ function Header() {
   const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [ready, setReady] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setReady(true), 3600);
     const onScroll = () => {
