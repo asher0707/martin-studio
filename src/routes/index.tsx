@@ -310,7 +310,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
         </div>
 
 
-        <div className="relative mt-6 flex-1 overflow-hidden pb-6">
+        <div className="relative mt-6 flex-1 overflow-hidden pb-2 xl:pb-6">
 
           <div
             className="flex h-full gap-6 px-8 will-change-transform md:px-14"
@@ -325,7 +325,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
                 href={p.href}
                 target={p.href.startsWith("http") ? "_blank" : undefined}
                 rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group relative flex h-full shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/30"
+                className="group relative flex h-[480px] shrink-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 xl:h-full xl:rounded-3xl"
 
                 style={{ width: `calc(${100 / projects.length}% - 1.25rem)`, boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
               >
