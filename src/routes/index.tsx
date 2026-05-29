@@ -258,7 +258,7 @@ function CurrentProjects() {
     return (
       <section id="projects" className="relative isolate overflow-hidden" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
-        <div className="relative mx-auto max-w-3xl px-6 pt-20 text-center">
+        <div className="relative mx-auto max-w-3xl px-6 pt-20 text-center no-text-anim">
           <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2rem, 9vw, 3rem)", lineHeight: 1 }}>Aktuelle Projekte</h2>
           <p className="mx-auto mt-6 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
 Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlose Ästhetik. Entdecken Sie unsere aktuellen Architektur- und Visualisierungsprojekte in der ganzen Schweiz — wo nachhaltige Materialien, moderne Formensprache und funktionales Design zu einzigartigen Lebensräumen verschmelzen.
@@ -301,10 +301,10 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden isolate" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
         <div className="mx-auto max-w-5xl px-8 pt-16 text-center">
-          <h2 className="font-display uppercase text-foreground whitespace-nowrap" style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)", lineHeight: 1 }}>
+          <h2 className="font-display uppercase text-foreground whitespace-nowrap" style={{ fontSize: "clamp(1.75rem, 4.5vw, 4rem)", lineHeight: 1 }}>
             Aktuelle Projekte
           </h2>
-          <p className="mx-auto mt-8 max-w-3xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
+          <p className="mx-auto mt-8 max-w-3xl text-sm xl:text-xs font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
 Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlose Ästhetik. Entdecken Sie unsere aktuellen Architektur- und Visualisierungsprojekte in der ganzen Schweiz — wo nachhaltige Materialien, moderne Formensprache und funktionales Design zu einzigartigen Lebensräumen verschmelzen.
           </p>
         </div>
@@ -472,6 +472,7 @@ function Home() {
     textEls.forEach((el) => {
       if (el.closest("header")) return;
       if (el.closest(".text-anim")) return;
+      if (el.closest(".no-text-anim")) return;
       if (!el.textContent || !el.textContent.trim()) return;
       el.classList.add("text-anim");
       io.observe(el);
