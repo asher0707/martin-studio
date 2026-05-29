@@ -167,7 +167,6 @@ function Hero() {
               <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 5vw, 5rem)" }}>zeitlose Architektur</span>
               <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.2vw, 2rem)", textShadow: "0 2px 20px rgba(0,0,0,1)" }}>Schweizer Präzision trifft auf visionäres Design</span>
             </h1>
-            </h1>
             <p className="mx-auto mt-6 max-w-md text-sm text-foreground/85 animate-fade-in">
               Wir erschaffen hochwertige, nachhaltige Architektur mit natürlichen Materialien und klaren Konzepten — für Räume, die Ästhetik, Funktion und modernes Wohnen harmonisch vereinen.
             </p>
