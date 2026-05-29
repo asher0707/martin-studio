@@ -299,14 +299,15 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden isolate" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
-        <div className="mx-auto max-w-3xl px-8 pt-24 text-center">
-          <h2 className="font-display uppercase text-foreground" style={{ fontSize: "clamp(2.5rem, 5.5vw, 5rem)", lineHeight: 1 }}>
+        <div className="mx-auto max-w-5xl px-8 pt-24 text-center">
+          <h2 className="font-display uppercase text-foreground whitespace-nowrap" style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)", lineHeight: 1 }}>
             Aktuelle Projekte
           </h2>
-          <p className="mx-auto mt-8 max-w-xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
+          <p className="mx-auto mt-8 max-w-3xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
 Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlose Ästhetik. Entdecken Sie unsere aktuellen Architektur- und Visualisierungsprojekte in der ganzen Schweiz — wo nachhaltige Materialien, moderne Formensprache und funktionales Design zu einzigartigen Lebensräumen verschmelzen.
           </p>
         </div>
+
 
         <div className="relative mt-12 flex-1 overflow-hidden">
           <div
@@ -327,12 +328,13 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
               >
                 <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
-                <div className="relative z-10 mt-auto w-full p-8">
-                  <span className="text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
-                  <h3 className="mt-2 font-display uppercase text-foreground" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2.25rem)", lineHeight: 1 }}>
+                <div className="relative z-10 mt-auto w-full p-5 sm:p-6 md:p-8">
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
+                  <h3 className="mt-2 font-display uppercase text-foreground" style={{ fontSize: "clamp(1.1rem, 2.4vw, 2.25rem)", lineHeight: 1 }}>
                     {p.name}
                   </h3>
                 </div>
+
               </a>
             ))}
           </div>
