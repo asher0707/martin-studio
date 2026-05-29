@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, ChevronDown, Play, Diamond } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Play, Diamond, Menu } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import heroImg from "@/assets/hero.jpg";
 import saasFee from "@/assets/proj-saas-fee.jpg";
 import eggerberg from "@/assets/proj-eggerberg.jpg";
@@ -71,6 +72,7 @@ function Header() {
   const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [ready, setReady] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setReady(true), 3600);
     const onScroll = () => {
@@ -119,21 +121,45 @@ function Header() {
             Swiss Realplan
           </span>
         </a>
-        <nav className="flex items-center gap-6 md:gap-10">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="group relative text-[10px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground md:text-[11px]"
-              style={{ letterSpacing: "0.2em" }}
-            >
-              {l.label}
-              <span
-                className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
-                style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
-              />
-            </a>
-          ))}
+        <nav className="flex items-center">
+          <div className="hidden items-center gap-6 md:flex md:gap-10">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="group relative text-[11px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground"
+                style={{ letterSpacing: "0.2em" }}
+              >
+                {l.label}
+                <span
+                  className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
+                  style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
+                />
+              </a>
+            ))}
+          </div>
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <button className="p-2 text-foreground/80 transition-colors hover:text-foreground" aria-label="Open menu">
+                <Menu className="h-5 w-5" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[260px] border-white/10 bg-deep">
+              <div className="mt-16 flex flex-col gap-8">
+                {links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground"
+                    style={{ letterSpacing: "0.2em" }}
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </nav>
       </div>
       <div className="h-px w-full" style={{ background: "oklch(1 0 0 / 0.06)" }}>
@@ -163,8 +189,8 @@ function Hero() {
         <div className="relative z-10 flex h-full flex-col px-6 text-center">
           <div className="mt-auto flex flex-col items-center pb-10">
             <h1 className="font-display text-foreground animate-fade-up" style={{ lineHeight: 1.05, textShadow: "0 3px 28px rgba(0,0,0,0.75)" }}>
-              <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 6.5vw, 6rem)" }}>zeitlose Architektur</span>
-              <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.8vw, 2.25rem)", textShadow: "0 2px 20px rgba(0,0,0,1)" }}>Schweizer Präzision trifft auf visionäres Design</span>
+              <span className="block font-bold uppercase tracking-tight" style={{ fontSize: "clamp(2.25rem, 5vw, 5rem)" }}>zeitlose Architektur</span>
+              <span className="mt-3 block italic font-light text-foreground/80" style={{ fontSize: "clamp(1.1rem, 2.2vw, 2rem)", textShadow: "0 2px 20px rgba(0,0,0,1)" }}>Schweizer Präzision trifft auf visionäres Design</span>
             </h1>
             <p className="mx-auto mt-6 max-w-md text-sm text-foreground/85 animate-fade-in">
               Wir erschaffen hochwertige, nachhaltige Architektur mit natürlichen Materialien und klaren Konzepten — für Räume, die Ästhetik, Funktion und modernes Wohnen harmonisch vereinen.
