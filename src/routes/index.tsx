@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, ChevronDown, Play, Diamond } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Play, Diamond, Menu } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import heroImg from "@/assets/hero.jpg";
 import saasFee from "@/assets/proj-saas-fee.jpg";
 import eggerberg from "@/assets/proj-eggerberg.jpg";
