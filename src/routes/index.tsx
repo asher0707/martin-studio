@@ -279,12 +279,13 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
             >
               <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover opacity-80" loading={i === 0 ? "eager" : "lazy"} />
               <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), oklch(0.08 0.01 25 / 0.15) 60%)" }} />
-              <div className="absolute inset-x-3 bottom-3 rounded-xl border border-white/15 p-5 backdrop-blur-md" style={{ background: "oklch(1 0 0 / 0.08)" }}>
-                <span className="text-[10px] uppercase tracking-wider-sm text-foreground/80">{String(i + 1).padStart(2, "0")} · {p.location}</span>
-                <h3 className="mt-2 font-display uppercase text-foreground" style={{ fontSize: "1.75rem", lineHeight: 1 }}>{p.name}</h3>
+              <div className="absolute inset-x-2 bottom-2 rounded-xl border border-white/15 p-3 backdrop-blur-md" style={{ background: "oklch(1 0 0 / 0.08)" }}>
+                <span className="text-[9px] uppercase tracking-wider-sm text-foreground/80">{String(i + 1).padStart(2, "0")} · {p.location}</span>
+                <h3 className="mt-1 font-display uppercase text-foreground" style={{ fontSize: "1.4rem", lineHeight: 1 }}>{p.name}</h3>
               </div>
             </a>
           ))}
+
         </div>
       </section>
     );
@@ -299,7 +300,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden isolate" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
-        <div className="mx-auto max-w-5xl px-8 pt-24 text-center">
+        <div className="mx-auto max-w-5xl px-8 pt-16 text-center">
           <h2 className="font-display uppercase text-foreground whitespace-nowrap" style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)", lineHeight: 1 }}>
             Aktuelle Projekte
           </h2>
@@ -309,7 +310,8 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
         </div>
 
 
-        <div className="relative mt-12 flex-1 overflow-hidden">
+        <div className="relative mt-6 flex-1 overflow-hidden pb-6">
+
           <div
             className="flex h-full gap-6 px-8 will-change-transform md:px-14"
             style={{
@@ -323,7 +325,8 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
                 href={p.href}
                 target={p.href.startsWith("http") ? "_blank" : undefined}
                 rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group relative flex h-[70%] shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/30"
+                className="group relative flex h-full shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/30"
+
                 style={{ width: `calc(${100 / projects.length}% - 1.25rem)`, boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
               >
                 <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
@@ -391,10 +394,7 @@ function Portfolio() {
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{ background: "var(--gradient-hover)" }}
               />
-              <div className="absolute inset-0 flex translate-y-3 flex-col justify-end p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="text-[10px] uppercase tracking-wider-sm text-foreground">{tag}</span>
-                <h3 className="mt-1 font-display text-xl uppercase text-foreground">{title}</h3>
-              </div>
+
             </a>
           );
         })}
