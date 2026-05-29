@@ -121,21 +121,45 @@ function Header() {
             Swiss Realplan
           </span>
         </a>
-        <nav className="flex items-center gap-6 md:gap-10">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="group relative text-[10px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground md:text-[11px]"
-              style={{ letterSpacing: "0.2em" }}
-            >
-              {l.label}
-              <span
-                className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
-                style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
-              />
-            </a>
-          ))}
+        <nav className="flex items-center">
+          <div className="hidden items-center gap-6 md:flex md:gap-10">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="group relative text-[11px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground"
+                style={{ letterSpacing: "0.2em" }}
+              >
+                {l.label}
+                <span
+                  className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
+                  style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
+                />
+              </a>
+            ))}
+          </div>
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <button className="p-2 text-foreground/80 transition-colors hover:text-foreground" aria-label="Open menu">
+                <Menu className="h-5 w-5" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[260px] border-white/10 bg-deep">
+              <div className="mt-16 flex flex-col gap-8">
+                {links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground"
+                    style={{ letterSpacing: "0.2em" }}
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </nav>
       </div>
       <div className="h-px w-full" style={{ background: "oklch(1 0 0 / 0.06)" }}>
