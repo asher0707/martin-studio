@@ -491,7 +491,7 @@ function Contact() {
             </div>
           </div>
           <div className="flex items-start justify-start text-[10px] uppercase text-foreground/40 md:justify-end" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
-            © {new Date().getFullYear()} SwissPlan Collective
+            © {new Date().getFullYear()} SWISSREALPLAN
           </div>
         </footer>
       </div>
