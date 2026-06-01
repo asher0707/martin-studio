@@ -424,26 +424,39 @@ function Contact() {
           <div className="reveal flex flex-col lg:col-span-7">
             <div className="mb-14">
               <span className="mb-6 block text-[11px] uppercase text-primary" style={{ letterSpacing: "0.4em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
-                Contact Us
+                Kontaktieren Sie uns
               </span>
               <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)" }}>
-                Begin the <span className="italic text-foreground/90" style={{ fontFamily: "'DM Serif Display', serif" }}>conversation.</span>
+                Beginnen wir das <span className="italic text-foreground/90" style={{ fontFamily: "'DM Serif Display', serif" }}>Gespräch.</span>
               </h2>
             </div>
 
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-12">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const data = new FormData(e.currentTarget);
+                const name = String(data.get("name") ?? "");
+                const email = String(data.get("email") ?? "");
+                const subject = String(data.get("subject") ?? "");
+                const message = String(data.get("message") ?? "");
+                const body = `Name: ${name}\nE-Mail: ${email}\n\n${message}`;
+                window.location.href = `mailto:swiss.realplan.immo@gmx.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}
+              className="space-y-12"
+            >
               <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2">
-                <Field label="Name" placeholder="Your full name" />
-                <Field label="Email" type="email" placeholder="you@studio.com" />
+                <Field label="Name" name="name" placeholder="Ihr vollständiger Name" />
+                <Field label="E-Mail" name="email" type="email" placeholder="sie@beispiel.ch" />
               </div>
-              <Field label="Subject" placeholder="Project inquiry, collaboration…" />
+              <Field label="Betreff" name="subject" placeholder="Projektanfrage, Zusammenarbeit…" />
               <label className="block">
                 <span className="mb-3 block text-[10px] uppercase text-foreground/40" style={{ letterSpacing: "0.2em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
-                  Message
+                  Nachricht
                 </span>
                 <textarea
+                  name="message"
                   rows={2}
-                  placeholder="Tell us about the space."
+                  placeholder="Erzählen Sie uns von Ihrem Raum."
                   className="w-full resize-none border-b border-white/20 bg-transparent pb-4 text-base font-light text-foreground placeholder:text-foreground/10 transition-colors focus:border-primary focus:outline-none"
                 />
               </label>
@@ -453,7 +466,7 @@ function Contact() {
                   className="group inline-flex items-center gap-6 px-10 py-5 text-[11px] uppercase text-foreground transition-all hover:brightness-110"
                   style={{ background: "oklch(0.55 0.22 25)", letterSpacing: "0.3em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}
                 >
-                  <span>Send message</span>
+                  <span>Nachricht senden</span>
                   <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth={1} />
                 </button>
               </div>
@@ -461,14 +474,24 @@ function Contact() {
           </div>
         </div>
 
-        <footer className="mt-32 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 md:flex-row">
-          <span className="text-[10px] uppercase text-foreground/40" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
+        <footer className="mt-32 grid grid-cols-1 gap-10 border-t border-white/10 pt-10 md:grid-cols-3">
+          <div>
+            <div className="mb-3 text-[11px] uppercase text-foreground" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>Office Visp</div>
+            <div className="space-y-1 text-sm font-light text-foreground/50">
+              <div>Terbinerstrasse 28</div>
+              <div>Postfach 26</div>
+              <div>3930 Visp</div>
+            </div>
+          </div>
+          <div>
+            <div className="mb-3 text-[11px] uppercase text-foreground" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>Office Murten</div>
+            <div className="space-y-1 text-sm font-light text-foreground/50">
+              <div>Irisweg 14</div>
+              <div>3280 Murten</div>
+            </div>
+          </div>
+          <div className="flex items-start justify-start text-[10px] uppercase text-foreground/40 md:justify-end" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
             © {new Date().getFullYear()} SwissPlan Collective
-          </span>
-          <div className="flex gap-10 text-[10px] uppercase text-foreground/40" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
-            <span className="cursor-default transition-colors hover:text-foreground">Geneva</span>
-            <span className="cursor-default transition-colors hover:text-foreground">Zurich</span>
-            <span className="cursor-default transition-colors hover:text-foreground">Milan</span>
           </div>
         </footer>
       </div>
