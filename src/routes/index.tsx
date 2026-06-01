@@ -409,20 +409,14 @@ function Contact() {
       <div className="mx-auto flex w-full max-w-6xl flex-col">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-24">
           <div className="reveal lg:col-span-5">
-            <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]" style={{ background: "oklch(0.06 0.01 25)" }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div
-                  className="aspect-square w-4/5 rounded-full"
-                  style={{ background: "oklch(0.55 0.22 25)", opacity: 0.9, filter: "blur(1px)" }}
-                />
-              </div>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]" style={{ background: "oklch(0.06 0.01 25)" }}>
               <img
                 src={teamImg}
                 alt="Our team"
                 width={1280}
                 height={1600}
                 loading="lazy"
-                className="absolute inset-0 z-10 h-full w-full object-contain mix-blend-luminosity transition-all duration-700 group-hover:mix-blend-normal"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
           </div>
