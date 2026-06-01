@@ -42,7 +42,7 @@ const gallery = [
 function Loader() {
   const [hide, setHide] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setHide(true), 3500);
+    const t = setTimeout(() => setHide(true), 1500);
     return () => clearTimeout(t);
   }, []);
   return (
