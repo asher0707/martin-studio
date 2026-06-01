@@ -79,7 +79,7 @@ function Header() {
   const [ready, setReady] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setReady(true), 1500);
+    const t = setTimeout(() => setReady(true), 3600);
     const onScroll = () => {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
