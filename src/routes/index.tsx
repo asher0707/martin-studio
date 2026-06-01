@@ -405,48 +405,93 @@ function Portfolio() {
 
 function Contact() {
   return (
-    <section id="contact" className="bg-deep px-5 sm:px-8 py-20 md:py-28">
-      <div className="mx-auto grid max-w-[1600px] items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div className="reveal relative overflow-hidden rounded-3xl" style={{ background: "var(--gradient-red-black)" }}>
-          <img src={teamImg} alt="Our team" width={1280} height={1280} loading="lazy" className="h-full w-full object-contain" />
-        </div>
-
-        <div className="reveal flex flex-col justify-center">
-          <span className="text-xs uppercase tracking-wider-sm text-primary">Contact Us</span>
-          <h2 className="mt-3 font-display text-foreground" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1 }}>
-            Begin the <span className="italic text-foreground/70">conversation.</span>
-          </h2>
-          <form onSubmit={(e) => e.preventDefault()} className="mt-10 grid gap-5">
-            <div className="grid gap-5 md:grid-cols-2">
-              <Field label="Name" placeholder="Your full name" />
-              <Field label="Email" type="email" placeholder="you@studio.com" />
+    <section id="contact" className="bg-deep px-6 py-24 md:px-16 md:py-32">
+      <div className="mx-auto flex w-full max-w-6xl flex-col">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-24">
+          <div className="reveal lg:col-span-5">
+            <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]" style={{ background: "oklch(0.06 0.01 25)" }}>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="aspect-square w-4/5 rounded-full"
+                  style={{ background: "oklch(0.55 0.22 25)", opacity: 0.9, filter: "blur(1px)" }}
+                />
+              </div>
+              <img
+                src={teamImg}
+                alt="Our team"
+                width={1280}
+                height={1600}
+                loading="lazy"
+                className="absolute inset-0 z-10 h-full w-full object-contain mix-blend-luminosity transition-all duration-700 group-hover:mix-blend-normal"
+              />
             </div>
-            <Field label="Subject" placeholder="A new monolith…" />
-            <label className="flex flex-col gap-2 text-xs uppercase tracking-wider-sm text-foreground/70">
-              Message
-              <textarea rows={4} placeholder="Tell us about the place." className="rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none" />
-            </label>
-            <button type="submit" className="group mt-2 inline-flex w-fit items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground transition hover:gap-3" style={{ background: "var(--gradient-red-black)" }}>
-              Send message
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
-            </button>
-          </form>
-        </div>
-      </div>
+          </div>
 
-      <footer className="mx-auto mt-24 flex max-w-[1600px] flex-col items-start justify-between gap-4 border-t border-border pt-8 text-xs uppercase tracking-wider-sm text-foreground/60 md:flex-row md:items-center">
-        <span>© {new Date().getFullYear()} SwissPlan Collective</span>
-        <span>Geneva · Zurich · Milan</span>
-      </footer>
+          <div className="reveal flex flex-col lg:col-span-7">
+            <div className="mb-14">
+              <span className="mb-6 block text-[11px] uppercase text-primary" style={{ letterSpacing: "0.4em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
+                Contact Us
+              </span>
+              <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)" }}>
+                Begin the <span className="italic text-foreground/90" style={{ fontFamily: "'DM Serif Display', serif" }}>conversation.</span>
+              </h2>
+            </div>
+
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-12">
+              <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2">
+                <Field label="Name" placeholder="Your full name" />
+                <Field label="Email" type="email" placeholder="you@studio.com" />
+              </div>
+              <Field label="Subject" placeholder="Project inquiry, collaboration…" />
+              <label className="block">
+                <span className="mb-3 block text-[10px] uppercase text-foreground/40" style={{ letterSpacing: "0.2em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
+                  Message
+                </span>
+                <textarea
+                  rows={2}
+                  placeholder="Tell us about the space."
+                  className="w-full resize-none border-b border-white/20 bg-transparent pb-4 text-base font-light text-foreground placeholder:text-foreground/10 transition-colors focus:border-primary focus:outline-none"
+                />
+              </label>
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="group inline-flex items-center gap-6 px-10 py-5 text-[11px] uppercase text-foreground transition-all hover:brightness-110"
+                  style={{ background: "oklch(0.55 0.22 25)", letterSpacing: "0.3em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}
+                >
+                  <span>Send message</span>
+                  <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth={1} />
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <footer className="mt-32 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 md:flex-row">
+          <span className="text-[10px] uppercase text-foreground/40" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
+            © {new Date().getFullYear()} SwissPlan Collective
+          </span>
+          <div className="flex gap-10 text-[10px] uppercase text-foreground/40" style={{ letterSpacing: "0.25em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
+            <span className="cursor-default transition-colors hover:text-foreground">Geneva</span>
+            <span className="cursor-default transition-colors hover:text-foreground">Zurich</span>
+            <span className="cursor-default transition-colors hover:text-foreground">Milan</span>
+          </div>
+        </footer>
+      </div>
     </section>
   );
 }
 
 function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <label className="flex flex-col gap-2 text-xs uppercase tracking-wider-sm text-foreground/70">
-      {label}
-      <input {...rest} className="rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none" />
+    <label className="block">
+      <span className="mb-3 block text-[10px] uppercase text-foreground/40" style={{ letterSpacing: "0.2em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
+        {label}
+      </span>
+      <input
+        {...rest}
+        className="w-full border-b border-white/20 bg-transparent pb-4 text-base font-light text-foreground placeholder:text-foreground/10 transition-colors focus:border-primary focus:outline-none"
+      />
     </label>
   );
 }
