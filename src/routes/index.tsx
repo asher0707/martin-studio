@@ -381,10 +381,11 @@ function Portfolio() {
               style={{ transitionDelay: `${(i % 6) * 60}ms`, contentVisibility: eager ? "visible" : "auto", containIntrinsicSize: "400px 400px" }}
             >
               <img
-                src={`/cards/card${i + 1}.jpeg`}
+                src={`/cards/card${i + 1}.webp`}
                 alt={title}
                 width={800}
                 height={800}
+                sizes="(min-width:1024px) 16vw, (min-width:768px) 25vw, (min-width:640px) 33vw, 50vw"
                 loading={eager ? "eager" : "lazy"}
                 decoding="async"
                 fetchPriority={eager ? "high" : "low"}
