@@ -364,7 +364,7 @@ function Portfolio() {
         <div>
           <span className="text-xs uppercase tracking-wider-sm text-primary">Portfolio</span>
           <h2 className="mt-3 font-display uppercase text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: 1 }}>
-            Verdichtete Jahre
+            Ausgeführte Projekte
           </h2>
         </div>
         <p className="max-w-md text-sm text-foreground/75">
