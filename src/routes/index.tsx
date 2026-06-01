@@ -15,6 +15,11 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Route = createFileRoute("/")({
   component: Home,
+  head: () => ({
+    links: [
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
+  }),
 });
 
 const projects = [
