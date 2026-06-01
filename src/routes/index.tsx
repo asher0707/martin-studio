@@ -2,19 +2,24 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Play, Diamond, Menu } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import heroImg from "@/assets/hero.jpg";
-import saasFee from "@/assets/proj-saas-fee.jpg";
-import eggerberg from "@/assets/proj-eggerberg.jpg";
-import erb from "@/assets/proj-erb.jpg";
-import visp from "@/assets/proj-visp.jpg";
-import contactImg from "@/assets/contact.jpg";
+import heroImg from "@/assets/hero.webp";
+import saasFee from "@/assets/proj-saas-fee.webp";
+import eggerberg from "@/assets/proj-eggerberg.webp";
+import erb from "@/assets/proj-erb.webp";
+import visp from "@/assets/proj-visp.webp";
+import contactImg from "@/assets/contact.webp";
 import logoImg from "@/assets/logo.png";
-import teamImg from "@/assets/team.png";
-import architectBg from "@/assets/architect-bg.jpg";
+import teamImg from "@/assets/team.webp";
+import architectBg from "@/assets/architect-bg.webp";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Route = createFileRoute("/")({
   component: Home,
+  head: () => ({
+    links: [
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
+  }),
 });
 
 const projects = [
@@ -42,7 +47,7 @@ const gallery = [
 function Loader() {
   const [hide, setHide] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setHide(true), 3500);
+    const t = setTimeout(() => setHide(true), 1500);
     return () => clearTimeout(t);
   }, []);
   return (
@@ -74,7 +79,7 @@ function Header() {
   const [ready, setReady] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setReady(true), 3600);
+    const t = setTimeout(() => setReady(true), 1500);
     const onScroll = () => {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
@@ -381,10 +386,11 @@ function Portfolio() {
               style={{ transitionDelay: `${(i % 6) * 60}ms`, contentVisibility: eager ? "visible" : "auto", containIntrinsicSize: "400px 400px" }}
             >
               <img
-                src={`/cards/card${i + 1}.jpeg`}
+                src={`/cards/card${i + 1}.webp`}
                 alt={title}
                 width={800}
                 height={800}
+                sizes="(min-width:1024px) 16vw, (min-width:768px) 25vw, (min-width:640px) 33vw, 50vw"
                 loading={eager ? "eager" : "lazy"}
                 decoding="async"
                 fetchPriority={eager ? "high" : "low"}
