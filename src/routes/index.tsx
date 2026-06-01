@@ -2,15 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Play, Diamond, Menu } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import heroImg from "@/assets/hero.jpg";
-import saasFee from "@/assets/proj-saas-fee.jpg";
-import eggerberg from "@/assets/proj-eggerberg.jpg";
-import erb from "@/assets/proj-erb.jpg";
-import visp from "@/assets/proj-visp.jpg";
-import contactImg from "@/assets/contact.jpg";
+import heroImg from "@/assets/hero.webp";
+import saasFee from "@/assets/proj-saas-fee.webp";
+import eggerberg from "@/assets/proj-eggerberg.webp";
+import erb from "@/assets/proj-erb.webp";
+import visp from "@/assets/proj-visp.webp";
+import contactImg from "@/assets/contact.webp";
 import logoImg from "@/assets/logo.png";
-import teamImg from "@/assets/team.png";
-import architectBg from "@/assets/architect-bg.jpg";
+import teamImg from "@/assets/team.webp";
+import architectBg from "@/assets/architect-bg.webp";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Route = createFileRoute("/")({
