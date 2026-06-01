@@ -359,11 +359,11 @@ function Portfolio() {
         <div>
           <span className="text-xs uppercase tracking-wider-sm text-primary">Portfolio</span>
           <h2 className="mt-3 font-display uppercase text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: 1 }}>
-            A grid of <span className="text-foreground/60">quiet weight</span>
+            Verdichtete Jahre
           </h2>
         </div>
         <p className="max-w-md text-sm text-foreground/75">
-          Thirty stories of stone, glass, and light. Hover to reveal the world behind each frame.
+          Dreißig Jahre, verdichtet in Stein, Glas und Licht.
         </p>
       </div>
 
