@@ -18,6 +18,12 @@ export const Route = createFileRoute("/")({
   head: () => ({
     links: [
       { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: saasFee },
+      { rel: "preload", as: "image", href: eggerberg },
+      { rel: "preload", as: "image", href: erb },
+      { rel: "preload", as: "image", href: visp },
+      { rel: "preload", as: "image", href: teamImg },
+      { rel: "preload", as: "image", href: contactImg },
     ],
   }),
 });
