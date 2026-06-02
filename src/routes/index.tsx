@@ -421,7 +421,7 @@ function Contact() {
       <div className="mx-auto flex w-full max-w-6xl flex-col">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16 xl:gap-24">
           <div className="reveal lg:col-span-5 xl:col-span-5">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-[160px] overflow-hidden rounded-[2rem] lg:max-w-[260px] xl:max-w-[320px] 2xl:max-w-none" style={{ background: "oklch(0.06 0.01 25)" }}>
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-[160px] overflow-hidden rounded-[2rem] lg:max-w-[260px] xl:max-w-[220px] 2xl:max-w-none" style={{ background: "oklch(0.06 0.01 25)" }}>
               <img
                 src={teamImg}
                 alt="Our team"
