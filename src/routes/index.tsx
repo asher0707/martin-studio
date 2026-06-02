@@ -311,11 +311,11 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden isolate" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
-        <div className="mx-auto max-w-5xl px-8 pt-16 text-center">
-          <h2 className="font-display uppercase text-foreground whitespace-nowrap" style={{ fontSize: "clamp(1.75rem, 5.5vw, 5rem)", lineHeight: 1 }}>
+        <div className="mx-auto max-w-4xl 2xl:max-w-5xl px-8 pt-12 2xl:pt-16 text-center">
+          <h2 className="font-display uppercase text-foreground whitespace-nowrap" style={{ fontSize: "clamp(1.5rem, 4.2vw, 5rem)", lineHeight: 1 }}>
             Aktuelle Projekte
           </h2>
-          <p className="mx-auto mt-8 max-w-3xl text-sm font-normal text-foreground/85" style={{ lineHeight: 1.7 }}>
+          <p className="mx-auto mt-6 max-w-2xl text-[13px] font-normal text-foreground/85 2xl:mt-8 2xl:max-w-3xl 2xl:text-sm" style={{ lineHeight: 1.7 }}>
 Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlose Ästhetik. Entdecken Sie unsere aktuellen Architektur- und Visualisierungsprojekte in der ganzen Schweiz — wo nachhaltige Materialien, moderne Formensprache und funktionales Design zu einzigartigen Lebensräumen verschmelzen.
           </p>
         </div>
@@ -421,7 +421,7 @@ function Contact() {
       <div className="mx-auto flex w-full max-w-6xl flex-col">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16 xl:gap-24">
           <div className="reveal lg:col-span-5 xl:col-span-5">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-[2rem] lg:max-w-[320px] xl:max-w-none" style={{ background: "oklch(0.06 0.01 25)" }}>
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-[160px] overflow-hidden rounded-[2rem] lg:max-w-[260px] xl:max-w-[320px] 2xl:max-w-none" style={{ background: "oklch(0.06 0.01 25)" }}>
               <img
                 src={teamImg}
                 alt="Our team"
@@ -438,7 +438,7 @@ function Contact() {
               <span className="mb-6 block text-[11px] uppercase text-primary" style={{ letterSpacing: "0.4em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
                 Kontaktieren Sie uns
               </span>
-              <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(2rem, 3.6vw, 4.5rem)" }}>
+              <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(1.25rem, 3.2vw, 4.5rem)" }}>
                 Beginnen wir das <span className="italic text-foreground/90" style={{ fontFamily: "'DM Serif Display', serif" }}>Gespräch.</span>
               </h2>
             </div>
