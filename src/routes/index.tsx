@@ -51,18 +51,25 @@ const gallery = [
 ];
 
 function Loader() {
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return sessionStorage.getItem("srp_loaded") === "1";
+  });
   useEffect(() => {
-    const t = setTimeout(() => setHide(true), 3000);
+    if (hide) return;
+    const t = setTimeout(() => {
+      setHide(true);
+      try { sessionStorage.setItem("srp_loaded", "1"); } catch {}
+    }, 3000);
     return () => clearTimeout(t);
-  }, []);
+  }, [hide]);
+  if (hide) return null;
   return (
     <div
       className="fixed inset-0 z-[100] overflow-hidden bg-deep"
       style={{
-        transform: hide ? "translate3d(0, -105vh, 0)" : "translate3d(0, 0, 0)",
-        transition: "transform 1100ms cubic-bezier(0.77, 0, 0.175, 1)",
-        pointerEvents: hide ? "none" : "auto",
+        transform: "translate3d(0, 0, 0)",
+        animation: "loaderOut 1100ms cubic-bezier(0.77, 0, 0.175, 1) 3000ms forwards",
         willChange: "transform",
       }}
     >
