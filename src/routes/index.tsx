@@ -135,20 +135,26 @@ function Header() {
         </a>
         <nav className="flex items-center">
           <div className="hidden items-center gap-6 md:flex md:gap-10">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="group relative text-[11px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground"
-                style={{ letterSpacing: "0.2em" }}
-              >
-                {l.label}
+            {links.map((l) => {
+              const className = "group relative text-[11px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground";
+              const underline = (
                 <span
                   className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
                   style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
                 />
-              </a>
-            ))}
+              );
+              return l.route ? (
+                <Link key={l.href} to={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
+                  {l.label}
+                  {underline}
+                </Link>
+              ) : (
+                <a key={l.href} href={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
+                  {l.label}
+                  {underline}
+                </a>
+              );
+            })}
           </div>
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
