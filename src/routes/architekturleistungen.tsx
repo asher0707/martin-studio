@@ -222,13 +222,14 @@ function ServicesGrid() {
                 <p className="mt-5 max-w-xl text-sm leading-relaxed text-foreground/70 md:text-[15px]">
                   {s.desc}
                 </p>
-                <a
-                  href="/#contact"
+                <Link
+                  to="/"
+                  hash="contact"
                   className="mt-7 inline-flex items-center gap-2 text-[11px] font-medium uppercase text-foreground/70 transition-colors hover:text-primary"
                   style={{ letterSpacing: "0.22em" }}
                 >
                   Anfragen <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
+                </Link>
               </div>
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                 <img
