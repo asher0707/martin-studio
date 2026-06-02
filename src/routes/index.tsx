@@ -438,7 +438,7 @@ function Contact() {
               <span className="mb-6 block text-[11px] uppercase text-primary" style={{ letterSpacing: "0.4em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
                 Kontaktieren Sie uns
               </span>
-              <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(2rem, 3.6vw, 4.5rem)" }}>
+              <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(1.25rem, 3.2vw, 4.5rem)" }}>
                 Beginnen wir das <span className="italic text-foreground/90" style={{ fontFamily: "'DM Serif Display', serif" }}>Gespräch.</span>
               </h2>
             </div>
