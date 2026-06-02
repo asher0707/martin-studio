@@ -53,12 +53,12 @@ const gallery = [
 function Loader() {
   const [hide, setHide] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setHide(true), 3500);
+    const t = setTimeout(() => setHide(true), 3000);
     return () => clearTimeout(t);
   }, []);
   return (
     <div
-      className="fixed inset-0 z-[100] grid h-screen w-screen place-items-center overflow-hidden bg-deep"
+      className="fixed inset-0 z-[100] overflow-hidden bg-deep"
       style={{
         transform: hide ? "translate3d(0, -105vh, 0)" : "translate3d(0, 0, 0)",
         transition: "transform 1100ms cubic-bezier(0.77, 0, 0.175, 1)",
@@ -71,9 +71,8 @@ function Loader() {
         autoPlay
         muted
         playsInline
-        onEnded={() => setHide(true)}
         onError={() => setHide(true)}
-        className="h-full w-full object-contain md:object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
   );
