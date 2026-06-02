@@ -417,11 +417,11 @@ function Portfolio() {
 
 function Contact() {
   return (
-    <section id="contact" className="bg-deep px-6 py-24 md:px-16 md:py-32">
+    <section id="contact" className="bg-deep px-6 py-20 md:px-16 md:py-24 xl:py-32">
       <div className="mx-auto flex w-full max-w-6xl flex-col">
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-24">
-          <div className="reveal lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]" style={{ background: "oklch(0.06 0.01 25)" }}>
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16 xl:gap-24">
+          <div className="reveal lg:col-span-5 xl:col-span-5">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-[2rem] lg:max-w-[320px] xl:max-w-none" style={{ background: "oklch(0.06 0.01 25)" }}>
               <img
                 src={teamImg}
                 alt="Our team"
@@ -434,14 +434,15 @@ function Contact() {
           </div>
 
           <div className="reveal flex flex-col lg:col-span-7">
-            <div className="mb-14">
+            <div className="mb-10 xl:mb-14">
               <span className="mb-6 block text-[11px] uppercase text-primary" style={{ letterSpacing: "0.4em", fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
                 Kontaktieren Sie uns
               </span>
-              <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)" }}>
+              <h2 className="font-display font-light leading-[1.1] tracking-tight text-foreground" style={{ fontSize: "clamp(2rem, 3.6vw, 4.5rem)" }}>
                 Beginnen wir das <span className="italic text-foreground/90" style={{ fontFamily: "'DM Serif Display', serif" }}>Gespräch.</span>
               </h2>
             </div>
+
 
             <form
               onSubmit={(e) => {
