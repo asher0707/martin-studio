@@ -222,14 +222,13 @@ function ServicesGrid() {
                 <p className="mt-5 max-w-xl text-sm leading-relaxed text-foreground/70 md:text-[15px]">
                   {s.desc}
                 </p>
-                <Link
-                  to="/"
-                  hash="contact"
+                <a
+                  href="/#contact"
                   className="mt-7 inline-flex items-center gap-2 text-[11px] font-medium uppercase text-foreground/70 transition-colors hover:text-primary"
                   style={{ letterSpacing: "0.22em" }}
                 >
                   Anfragen <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
+                </a>
               </div>
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                 <img
@@ -264,14 +263,13 @@ function CTA() {
         <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-foreground/70">
           Ob Studie, Neubau oder Totalunternehmung — wir nehmen uns Zeit, Ihre Vision zu verstehen, bevor wir antworten.
         </p>
-        <Link
-          to="/"
-          hash="contact"
+        <a
+          href="/#contact"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3 text-xs font-medium uppercase text-primary-foreground transition-transform hover:scale-[1.02]"
           style={{ letterSpacing: "0.24em" }}
         >
           Kontakt aufnehmen <ArrowUpRight className="h-4 w-4" />
-        </Link>
+        </a>
       </div>
     </section>
   );

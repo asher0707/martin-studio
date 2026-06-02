@@ -51,22 +51,14 @@ const gallery = [
 ];
 
 function Loader() {
-  const alreadyShown = typeof window !== "undefined" && sessionStorage.getItem("srp_loaded") === "1";
-  const [mounted, setMounted] = useState(!alreadyShown);
   const [hide, setHide] = useState(false);
   useEffect(() => {
-    if (!mounted) return;
-    const t = setTimeout(() => {
-      setHide(true);
-      try { sessionStorage.setItem("srp_loaded", "1"); } catch {}
-      setTimeout(() => setMounted(false), 1200);
-    }, 3000);
+    const t = setTimeout(() => setHide(true), 3500);
     return () => clearTimeout(t);
-  }, [mounted]);
-  if (!mounted) return null;
+  }, []);
   return (
     <div
-      className="fixed inset-0 z-[100] overflow-hidden bg-deep"
+      className="fixed inset-0 z-[100] grid h-screen w-screen place-items-center overflow-hidden bg-deep"
       style={{
         transform: hide ? "translate3d(0, -105vh, 0)" : "translate3d(0, 0, 0)",
         transition: "transform 1100ms cubic-bezier(0.77, 0, 0.175, 1)",
@@ -79,8 +71,9 @@ function Loader() {
         autoPlay
         muted
         playsInline
+        onEnded={() => setHide(true)}
         onError={() => setHide(true)}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="h-full w-full object-contain md:object-cover"
       />
     </div>
   );
@@ -92,7 +85,7 @@ function Header() {
   const [ready, setReady] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setReady(true), 3100);
+    const t = setTimeout(() => setReady(true), 3600);
     const onScroll = () => {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
