@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Play, Diamond, Menu } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
@@ -104,6 +104,7 @@ function Header() {
   const links = [
     { href: "#projects", label: "Projects" },
     { href: "#portfolio", label: "Portfolio" },
+    { href: "/architekturleistungen", label: "Architekturleistungen", route: true as const },
     { href: "#contact", label: "Contact" },
   ];
   return (
@@ -134,20 +135,26 @@ function Header() {
         </a>
         <nav className="flex items-center">
           <div className="hidden items-center gap-6 md:flex md:gap-10">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="group relative text-[11px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground"
-                style={{ letterSpacing: "0.2em" }}
-              >
-                {l.label}
+            {links.map((l) => {
+              const className = "group relative text-[11px] font-medium uppercase text-foreground/75 transition-colors duration-300 hover:text-foreground";
+              const underline = (
                 <span
                   className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
                   style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
                 />
-              </a>
-            ))}
+              );
+              return l.route ? (
+                <Link key={l.href} to={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
+                  {l.label}
+                  {underline}
+                </Link>
+              ) : (
+                <a key={l.href} href={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
+                  {l.label}
+                  {underline}
+                </a>
+              );
+            })}
           </div>
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
@@ -158,15 +165,27 @@ function Header() {
             <SheetContent side="right" className="w-[260px] border-white/10 bg-deep">
               <div className="mt-16 flex flex-col gap-8">
                 {links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground"
-                    style={{ letterSpacing: "0.2em" }}
-                  >
-                    {l.label}
-                  </a>
+                  l.route ? (
+                    <Link
+                      key={l.href}
+                      to={l.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground"
+                      style={{ letterSpacing: "0.2em" }}
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground"
+                      style={{ letterSpacing: "0.2em" }}
+                    >
+                      {l.label}
+                    </a>
+                  )
                 ))}
               </div>
             </SheetContent>
