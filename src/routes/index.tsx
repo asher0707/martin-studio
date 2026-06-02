@@ -104,6 +104,7 @@ function Header() {
   const links = [
     { href: "#projects", label: "Projects" },
     { href: "#portfolio", label: "Portfolio" },
+    { href: "/architekturleistungen", label: "Architekturleistungen", route: true as const },
     { href: "#contact", label: "Contact" },
   ];
   return (
