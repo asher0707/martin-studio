@@ -355,7 +355,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
                 href={p.href}
                 target={p.href.startsWith("http") ? "_blank" : undefined}
                 rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group relative flex aspect-[3/4] h-auto max-h-[78vh] shrink-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 xl:aspect-auto xl:h-full xl:max-h-none xl:rounded-3xl"
+                className="group relative flex aspect-square h-auto max-h-[78vh] shrink-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 xl:aspect-auto xl:h-full xl:max-h-none xl:rounded-3xl"
 
                 style={{ width: `calc(${100 / projects.length}% - 1.25rem)`, boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
               >
