@@ -87,12 +87,12 @@ function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const links = [
-    { href: "/", label: "Home", route: true as const },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#portfolio", label: "Portfolio" },
-    { href: "/architekturleistungen", label: "Architekturleistungen", route: true as const },
-    { href: "/#contact", label: "Contact" },
+  const links: Array<{ label: string; to: string; hash?: string; key: string }> = [
+    { key: "home", label: "Home", to: "/" },
+    { key: "projects", label: "Projects", to: "/", hash: "projects" },
+    { key: "portfolio", label: "Portfolio", to: "/", hash: "portfolio" },
+    { key: "arch", label: "Architekturleistungen", to: "/architekturleistungen" },
+    { key: "contact", label: "Contact", to: "/", hash: "contact" },
   ];
   return (
     <header
@@ -127,16 +127,11 @@ function Header() {
                   style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
                 />
               );
-              return l.route ? (
-                <Link key={l.href} to={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
+              return (
+                <Link key={l.key} to={l.to} hash={l.hash} className={className} style={{ letterSpacing: "0.2em" }}>
                   {l.label}
                   {underline}
                 </Link>
-              ) : (
-                <a key={l.href} href={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
-                  {l.label}
-                  {underline}
-                </a>
               );
             })}
           </div>
@@ -149,15 +144,9 @@ function Header() {
             <SheetContent side="right" className="w-[260px] border-white/10 bg-deep">
               <div className="mt-16 flex flex-col gap-8">
                 {links.map((l) => (
-                  l.route ? (
-                    <Link key={l.href} to={l.href} onClick={() => setMenuOpen(false)} className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground" style={{ letterSpacing: "0.2em" }}>
-                      {l.label}
-                    </Link>
-                  ) : (
-                    <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)} className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground" style={{ letterSpacing: "0.2em" }}>
-                      {l.label}
-                    </a>
-                  )
+                  <Link key={l.key} to={l.to} hash={l.hash} onClick={() => setMenuOpen(false)} className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground" style={{ letterSpacing: "0.2em" }}>
+                    {l.label}
+                  </Link>
                 ))}
               </div>
             </SheetContent>
@@ -222,13 +211,14 @@ function ServicesGrid() {
                 <p className="mt-5 max-w-xl text-sm leading-relaxed text-foreground/70 md:text-[15px]">
                   {s.desc}
                 </p>
-                <a
-                  href="/#contact"
+                <Link
+                  to="/"
+                  hash="contact"
                   className="mt-7 inline-flex items-center gap-2 text-[11px] font-medium uppercase text-foreground/70 transition-colors hover:text-primary"
                   style={{ letterSpacing: "0.22em" }}
                 >
                   Anfragen <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
+                </Link>
               </div>
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                 <img
