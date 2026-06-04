@@ -87,12 +87,12 @@ function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const links = [
-    { href: "/", label: "Home", route: true as const },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#portfolio", label: "Portfolio" },
-    { href: "/architekturleistungen", label: "Architekturleistungen", route: true as const },
-    { href: "/#contact", label: "Contact" },
+  const links: Array<{ label: string; to: string; hash?: string; key: string }> = [
+    { key: "home", label: "Home", to: "/" },
+    { key: "projects", label: "Projects", to: "/", hash: "projects" },
+    { key: "portfolio", label: "Portfolio", to: "/", hash: "portfolio" },
+    { key: "arch", label: "Architekturleistungen", to: "/architekturleistungen" },
+    { key: "contact", label: "Contact", to: "/", hash: "contact" },
   ];
   return (
     <header
