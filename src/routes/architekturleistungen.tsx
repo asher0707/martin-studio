@@ -43,13 +43,13 @@ const services = [
     num: "03",
     title: "Bewilligungsverfahren",
     desc: "Wir begleiten Bauherren durch das gesamte Bewilligungsverfahren — präzise Gesuche, klare Kommunikation mit Behörden und ein souveräner Umgang mit Auflagen und Einsprachen.",
-    img: vizAsset.url,
+    img: service3.url,
   },
   {
     num: "04",
     title: "Ausführungsplanung",
     desc: "Detailgenaue Pläne, präzise Materialisierung, klare Schnittstellen. Unsere Ausführungsplanung ist die Sprache, die Handwerker und Unternehmer auf der Baustelle führt.",
-    img: sketchingAsset.url,
+    img: service4.url,
   },
   {
     num: "05",
@@ -61,7 +61,7 @@ const services = [
     num: "06",
     title: "Umbauten und Sanierungen",
     desc: "Bestehende Substanz weiterdenken: behutsame Umbauten, energetische Sanierungen und Eingriffe, die den Charakter eines Hauses respektieren und seinen Wert neu definieren.",
-    img: constructionAsset.url,
+    img: service6.url,
   },
   {
     num: "07",
@@ -73,13 +73,13 @@ const services = [
     num: "08",
     title: "Immobilien",
     desc: "Wir vermarkten Wohn- und Renditeobjekte mit demselben gestalterischen Anspruch, mit dem wir bauen. Diskret, professionell, mit Gespür für Lage, Architektur und Zielgruppe.",
-    img: printingAsset.url,
+    img: service8.url,
   },
   {
     num: "09",
     title: "Investment",
     desc: "Strukturierte Investments in werthaltige Schweizer Immobilien. Wir identifizieren Chancen, entwickeln Renditeobjekte und begleiten Investoren von der Akquisition bis zur Übergabe.",
-    img: vizAsset.url,
+    img: service9.url,
   },
 ];
 
