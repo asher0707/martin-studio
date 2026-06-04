@@ -263,13 +263,14 @@ function CTA() {
         <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-foreground/70">
           Ob Studie, Neubau oder Totalunternehmung — wir nehmen uns Zeit, Ihre Vision zu verstehen, bevor wir antworten.
         </p>
-        <a
-          href="/#contact"
+        <Link
+          to="/"
+          hash="contact"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3 text-xs font-medium uppercase text-primary-foreground transition-transform hover:scale-[1.02]"
           style={{ letterSpacing: "0.24em" }}
         >
           Kontakt aufnehmen <ArrowUpRight className="h-4 w-4" />
-        </a>
+        </Link>
       </div>
     </section>
   );
