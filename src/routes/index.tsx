@@ -358,13 +358,13 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
         </div>
 
 
-        <div className="relative mt-6 flex-1 overflow-hidden pb-2 xl:pb-6">
+        <div ref={viewportRef} className="relative mt-6 flex-1 overflow-hidden py-6 xl:py-10">
 
           <div
-            className="flex h-full items-start gap-6 px-8 will-change-transform md:px-14"
+            ref={trackRef}
+            className="flex h-full w-max items-center gap-6 px-8 will-change-transform md:px-14"
             style={{
-              width: `${(projects.length / visibleCards) * 100}%`,
-              transform: `translate3d(${translatePct}%, 0, 0)`,
+              transform: `translate3d(${translatePx}px, 0, 0)`,
             }}
           >
             {projects.map((p, i) => (
@@ -373,9 +373,9 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
                 href={p.href}
                 target={p.href.startsWith("http") ? "_blank" : undefined}
                 rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group relative flex aspect-square h-auto shrink-0 self-start overflow-hidden rounded-2xl border border-white/15 bg-black/30 xl:rounded-3xl"
+                className="group relative flex aspect-square h-full w-auto shrink-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 xl:rounded-3xl"
 
-                style={{ width: `calc(${100 / projects.length}% - 1.25rem)`, boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
+                style={{ boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
               >
                 <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 py-[20px] px-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
