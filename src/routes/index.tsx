@@ -111,7 +111,7 @@ function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
-      clearTimeout(t);
+      if (t) clearTimeout(t);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
