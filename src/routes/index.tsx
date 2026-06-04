@@ -358,7 +358,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
         </div>
 
 
-        <div ref={viewportRef} className="relative mt-6 flex-1 overflow-hidden py-6 xl:py-10">
+        <div ref={viewportRef} className="relative mt-6 flex-1 overflow-hidden py-12 xl:py-16">
 
           <div
             ref={trackRef}
