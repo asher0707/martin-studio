@@ -10,6 +10,7 @@ import service3 from "@/assets/service-3.jpg.asset.json";
 import service4 from "@/assets/service-4.jpg.asset.json";
 import service6 from "@/assets/service-6.jpg.asset.json";
 import service8 from "@/assets/service-8.jpg.asset.json";
+import service7 from "@/assets/service-7.jpg.asset.json";
 import service9 from "@/assets/service-9.jpg.asset.json";
 
 export const Route = createFileRoute("/architekturleistungen")({
@@ -67,7 +68,7 @@ const services = [
     num: "07",
     title: "Totalunternehmung",
     desc: "Ein Ansprechpartner. Ein Vertrag. Volle Verantwortung. Als Totalunternehmer realisieren wir Projekte zum Festpreis und Festtermin — Sie behalten die Übersicht, wir den Bau.",
-    img: vizAsset.url,
+    img: service7.url,
   },
   {
     num: "08",
