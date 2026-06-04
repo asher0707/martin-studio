@@ -344,7 +344,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
       id="projects"
       ref={wrapRef}
       className="relative"
-      style={{ height: `${projects.length * 90}vh` }}
+      style={{ height: `${100 + projects.length * 60}vh` }}
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden isolate" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
