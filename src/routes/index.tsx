@@ -242,7 +242,10 @@ function Intro() {
 
 function CurrentProjects() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [maxShiftPx, setMaxShiftPx] = useState(0);
   const isMobile = useIsMobile();
 
 
@@ -262,28 +265,42 @@ function CurrentProjects() {
       target = total > 0 ? scrolled / total : 0;
     };
 
+    const measureShift = () => {
+      const t = trackRef.current;
+      const v = viewportRef.current;
+      if (!t || !v) return;
+      setMaxShiftPx(Math.max(0, t.scrollWidth - v.clientWidth));
+    };
+
     const tick = () => {
-      current += (target - current) * 0.08; // smooth lerp
+      current += (target - current) * 0.14; // snappier lerp
       setProgress(current);
       if (running) raf = requestAnimationFrame(tick);
     };
 
     measure();
+    measureShift();
     current = target;
     raf = requestAnimationFrame(tick);
     window.addEventListener("scroll", measure, { passive: true });
     window.addEventListener("resize", measure);
+    window.addEventListener("resize", measureShift);
+    const ro = new ResizeObserver(measureShift);
+    if (trackRef.current) ro.observe(trackRef.current);
+    if (viewportRef.current) ro.observe(viewportRef.current);
     return () => {
       running = false;
       window.removeEventListener("scroll", measure);
       window.removeEventListener("resize", measure);
+      window.removeEventListener("resize", measureShift);
+      ro.disconnect();
       cancelAnimationFrame(raf);
     };
   }, []);
 
- const visibleCards = 2.4;
- const maxShift = Math.max(0, (projects.length - visibleCards) * (100 / visibleCards));
- const translatePct = -(progress * maxShift);
+ const translatePx = -(progress * maxShiftPx);
+
+
 
   if (isMobile) {
     return (
