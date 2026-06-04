@@ -144,15 +144,9 @@ function Header() {
             <SheetContent side="right" className="w-[260px] border-white/10 bg-deep">
               <div className="mt-16 flex flex-col gap-8">
                 {links.map((l) => (
-                  l.route ? (
-                    <Link key={l.href} to={l.href} onClick={() => setMenuOpen(false)} className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground" style={{ letterSpacing: "0.2em" }}>
-                      {l.label}
-                    </Link>
-                  ) : (
-                    <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)} className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground" style={{ letterSpacing: "0.2em" }}>
-                      {l.label}
-                    </a>
-                  )
+                  <Link key={l.key} to={l.to} hash={l.hash} onClick={() => setMenuOpen(false)} className="text-sm font-medium uppercase text-foreground/75 transition-colors hover:text-foreground" style={{ letterSpacing: "0.2em" }}>
+                    {l.label}
+                  </Link>
                 ))}
               </div>
             </SheetContent>
