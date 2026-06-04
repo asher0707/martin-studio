@@ -281,8 +281,9 @@ function CurrentProjects() {
     };
   }, []);
 
-  const maxShift = Math.max(0, (projects.length - 3) * (100 / 3));
-  const translatePct = -(progress * maxShift);
+ const visibleCards = 2.4;
+ const maxShift = Math.max(0, (projects.length - visibleCards) * (100 / visibleCards));
+ const translatePct = -(progress * maxShift);
 
   if (isMobile) {
     return (
