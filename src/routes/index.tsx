@@ -281,8 +281,9 @@ function CurrentProjects() {
     };
   }, []);
 
-  const maxShift = Math.max(0, (projects.length - 3) * (100 / 3));
-  const translatePct = -(progress * maxShift);
+ const visibleCards = 2.4;
+ const maxShift = Math.max(0, (projects.length - visibleCards) * (100 / visibleCards));
+ const translatePct = -(progress * maxShift);
 
   if (isMobile) {
     return (
@@ -345,7 +346,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
           <div
             className="flex h-full items-start gap-6 px-8 will-change-transform md:px-14"
             style={{
-              width: `${(projects.length / 3) * 100}%`,
+              width: `${(projects.length / visibleCards) * 100}%`,
               transform: `translate3d(${translatePct}%, 0, 0)`,
             }}
           >
