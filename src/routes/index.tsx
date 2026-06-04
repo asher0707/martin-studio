@@ -54,10 +54,16 @@ function Loader() {
   const [hide, setHide] = useState(false);
   const [skip, setSkip] = useState(false);
   useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < 1280) {
+    if (typeof window === "undefined") return;
+    if (window.innerWidth < 1280) {
       setSkip(true);
       return;
     }
+    if (sessionStorage.getItem("loaderShown") === "1") {
+      setSkip(true);
+      return;
+    }
+    sessionStorage.setItem("loaderShown", "1");
     const t = setTimeout(() => setHide(true), 3500);
     return () => clearTimeout(t);
   }, []);
@@ -88,10 +94,13 @@ function Loader() {
 function Header() {
   const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 1280 || sessionStorage.getItem("loaderShown") === "1";
+  });
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setReady(true), 3600);
+    const t = ready ? null : setTimeout(() => setReady(true), 3600);
     const onScroll = () => {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
@@ -102,7 +111,7 @@ function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
-      clearTimeout(t);
+      if (t) clearTimeout(t);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
