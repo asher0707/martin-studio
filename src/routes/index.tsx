@@ -343,7 +343,7 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
         <div className="relative mt-6 flex-1 overflow-hidden pb-2 xl:pb-6">
 
           <div
-            className="flex h-full gap-6 px-8 will-change-transform md:px-14"
+            className="flex h-full items-start gap-6 px-8 will-change-transform md:px-14"
             style={{
               width: `${(projects.length / 3) * 100}%`,
               transform: `translate3d(${translatePct}%, 0, 0)`,
