@@ -127,16 +127,11 @@ function Header() {
                   style={{ background: "linear-gradient(90deg, oklch(0.62 0.24 25), oklch(0.85 0.18 25))" }}
                 />
               );
-              return l.route ? (
-                <Link key={l.href} to={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
+              return (
+                <Link key={l.key} to={l.to} hash={l.hash} className={className} style={{ letterSpacing: "0.2em" }}>
                   {l.label}
                   {underline}
                 </Link>
-              ) : (
-                <a key={l.href} href={l.href} className={className} style={{ letterSpacing: "0.2em" }}>
-                  {l.label}
-                  {underline}
-                </a>
               );
             })}
           </div>
