@@ -52,10 +52,16 @@ const gallery = [
 
 function Loader() {
   const [hide, setHide] = useState(false);
+  const [skip, setSkip] = useState(false);
   useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 1280) {
+      setSkip(true);
+      return;
+    }
     const t = setTimeout(() => setHide(true), 3500);
     return () => clearTimeout(t);
   }, []);
+  if (skip) return null;
   return (
     <div
       className="fixed inset-0 z-[100] grid h-screen w-screen place-items-center overflow-hidden bg-deep"
