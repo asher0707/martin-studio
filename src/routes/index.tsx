@@ -580,19 +580,34 @@ function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes
 
 function Home() {
   useEffect(() => {
+    const reveal = (el: Element) => el.classList.add("in");
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add("in");
+            reveal(e.target);
             io.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
     );
 
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    const observe = (el: Element) => {
+      const rect = el.getBoundingClientRect();
+      // Already visible or already scrolled past — reveal immediately
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        reveal(el);
+        return;
+      }
+      if (rect.bottom <= 0) {
+        reveal(el);
+        return;
+      }
+      io.observe(el);
+    };
+
+    document.querySelectorAll(".reveal").forEach(observe);
 
     const textSelector = "h1, h2, h3, h4, h5, h6, p, span, a, label, li, blockquote";
     const textEls = document.querySelectorAll<HTMLElement>(`main ${textSelector}`);
@@ -601,7 +616,7 @@ function Home() {
       if (el.closest(".text-anim")) return;
       if (!el.textContent || !el.textContent.trim()) return;
       el.classList.add("text-anim");
-      io.observe(el);
+      observe(el);
     });
 
     return () => io.disconnect();
