@@ -586,6 +586,10 @@ function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes
 function Home() {
   useEffect(() => {
     const reveal = (el: Element) => el.classList.add("in");
+    const skipAnim =
+      typeof window !== "undefined" &&
+      sessionStorage.getItem("loaderShown") === "1";
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -599,8 +603,11 @@ function Home() {
     );
 
     const observe = (el: Element) => {
+      if (skipAnim) {
+        reveal(el);
+        return;
+      }
       const rect = el.getBoundingClientRect();
-      // Already visible or already scrolled past — reveal immediately
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         reveal(el);
         return;
