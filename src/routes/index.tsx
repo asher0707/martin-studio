@@ -94,10 +94,13 @@ function Loader() {
 function Header() {
   const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 1280 || sessionStorage.getItem("loaderShown") === "1";
+  });
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setReady(true), 3600);
+    const t = ready ? null : setTimeout(() => setReady(true), 3600);
     const onScroll = () => {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
