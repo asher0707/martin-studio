@@ -12,6 +12,7 @@ import service6 from "@/assets/service-6.jpg.asset.json";
 import service8 from "@/assets/service-8.jpg.asset.json";
 import service7 from "@/assets/service-7.jpg.asset.json";
 import service9 from "@/assets/service-9.jpg.asset.json";
+import bauhandelAsset from "@/assets/bauhandel.jpg.asset.json";
 
 export const Route = createFileRoute("/architekturleistungen")({
   component: Architekturleistungen,
@@ -81,6 +82,12 @@ const services = [
     title: "Investment",
     desc: "Strukturierte Investments in werthaltige Schweizer Immobilien. Wir identifizieren Chancen, entwickeln Renditeobjekte und begleiten Investoren von der Akquisition bis zur Übergabe.",
     img: service9.url,
+  },
+  {
+    num: "10",
+    title: "Bauhandel",
+    desc: "Hochwertige Bauelemente aus einer Hand: Küchen, Bäder, Schlafzimmer, Türen und Einbaumöbel. Wir liefern und montieren ausgewählte Produkte führender Hersteller — von der Beratung im Showroom bis zur fertigen Installation vor Ort.",
+    img: bauhandelAsset.url,
   },
 ];
 
