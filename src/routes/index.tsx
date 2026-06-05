@@ -505,7 +505,7 @@ function Portfolio() {
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{ background: "var(--gradient-hover)" }}
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3 transition-all duration-300 opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3 transition-all duration-300 opacity-100 translate-y-0 min-[480px]:opacity-0 min-[480px]:translate-y-2 min-[480px]:group-hover:translate-y-0 min-[480px]:group-hover:opacity-100">
                 <span className="text-xs sm:text-sm font-medium uppercase tracking-wider-sm text-white drop-shadow">
                   {title}
                 </span>
