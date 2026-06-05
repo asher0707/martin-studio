@@ -129,7 +129,7 @@ function Header() {
   ];
   return (
     <header
-      className="fixed inset-x-0 top-0 z-[200] transition-all duration-700 ease-out"
+      className="absolute inset-x-0 top-0 z-[200] transition-all duration-700 ease-out"
       style={{
         opacity: ready ? 1 : 0,
         transform: ready ? "translateY(0)" : "translateY(-100%)",
