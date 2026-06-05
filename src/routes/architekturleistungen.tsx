@@ -102,7 +102,7 @@ function Header() {
   ];
   return (
     <header
-      className="fixed inset-x-0 top-0 z-[200] transition-all duration-700 ease-out"
+      className="absolute inset-x-0 top-0 z-[200] transition-all duration-700 ease-out"
       style={{
         background: scrolled
           ? "linear-gradient(180deg, oklch(0.12 0.04 25 / 0.78) 0%, oklch(0.08 0.03 25 / 0.62) 100%)"
