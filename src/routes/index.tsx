@@ -419,7 +419,51 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
   );
 }
 
+const portfolioTitles = [
+  "Wohnsiedlung, Visp",
+  "Ferienhaus, Staldenried",
+  "Wohnhaus, Ins",
+  "Umbau Wohnhaus, Naters",
+  "Umbau Wohnhaus, Staldenried",
+  "Geschäftshaus, Visp",
+  "Wohnsiedlung, Brigerbad",
+  "Wohnhaus, Aarberg",
+  "Geschäftshaus, Visp",
+  "Gewerbehaus, Visp",
+  "Einfamilienhaus, Visp",
+  "Gewerbehaus, Visp",
+  "Geschäftszentrum, Visp",
+  "Reihenhäuser, Baltschieder",
+  "Einfamilienhaus, Baltschieder",
+  "Einfamilienhaus, Visp",
+  "Umbau Einfamilienhaus, Sierre",
+  "Geschäftshaus, Visp",
+  "Umbau Restaurant, Binn",
+  "Umbau Wohnhaus, Ins",
+  "Umbau Hotel, Raron",
+  "Einfamilienhaus, Thun",
+  "Umbau Glaceecke, Ostermundigen",
+  "Einfamilienhaus, Solothurn",
+  "Wohnsiedlung, Bargen",
+  "Ferienhaus, Albinen",
+  "Tiny Häuser in Naters",
+  "Einfamilienhaus, Eggerberg",
+  "Geschäftszentrum, Visp",
+  "Reihenhäuser, Baltschieder",
+];
+
 function Portfolio() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (openIdx === null) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpenIdx(null); };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+  }, [openIdx]);
+
   return (
     <section id="portfolio" className="relative bg-deep py-20 px-5 sm:px-8 md:px-10 lg:px-[50px] md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-grain opacity-20" />
@@ -437,15 +481,13 @@ function Portfolio() {
 
       <div className="relative mx-auto grid max-w-[1800px] grid-cols-2 gap-0 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {Array.from({ length: 30 }).map((_, i) => {
-          const tags = ["Residential", "Wellness", "Hospitality", "Workspace"];
-          const title = `Project ${String(i + 1).padStart(2, "0")}`;
-          const tag = tags[i % tags.length];
-          const eager = true;
+          const title = portfolioTitles[i] ?? `Project ${String(i + 1).padStart(2, "0")}`;
           return (
-            <a
+            <button
               key={i}
-              href="#"
-              className="group relative aspect-square overflow-hidden reveal bg-black/40"
+              type="button"
+              onClick={() => setOpenIdx(i)}
+              className="group relative aspect-square overflow-hidden reveal bg-black/40 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               style={{ transitionDelay: `${(i % 6) * 60}ms` }}
             >
               <img
@@ -463,11 +505,44 @@ function Portfolio() {
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{ background: "var(--gradient-hover)" }}
               />
-
-            </a>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 p-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="text-xs sm:text-sm font-medium uppercase tracking-wider-sm text-white drop-shadow">
+                  {title}
+                </span>
+              </div>
+            </button>
           );
         })}
       </div>
+
+      {openIdx !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm animate-in fade-in-0"
+          onClick={() => setOpenIdx(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="relative flex flex-col items-center gap-3" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={`/cards/card${openIdx + 1}.webp`}
+              alt={portfolioTitles[openIdx]}
+              className="rounded-xl object-contain shadow-2xl"
+              style={{ width: "min(90vw, 400px)", height: "auto", maxHeight: "85vh" }}
+            />
+            <span className="text-sm font-medium uppercase tracking-wider-sm text-white">
+              {portfolioTitles[openIdx]}
+            </span>
+            <button
+              type="button"
+              onClick={() => setOpenIdx(null)}
+              className="absolute -top-3 -right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white text-black shadow-lg hover:scale-105 transition"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
