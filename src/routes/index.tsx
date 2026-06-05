@@ -368,17 +368,17 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden isolate" style={{ background: "radial-gradient(120% 80% at 50% 0%, oklch(0 0 0) 0%, oklch(0.08 0.06 25) 45%, oklch(0.18 0.12 25) 100%)" }}>
         <div className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-70" />
-        <div className="mx-auto max-w-4xl 2xl:max-w-5xl px-8 pt-12 2xl:pt-16 text-center [@media(max-height:760px)]:pt-6">
-          <h2 className="font-display uppercase text-foreground whitespace-nowrap [@media(max-height:760px)]:text-[1.75rem]" style={{ fontSize: "clamp(1.5rem, 4.2vw, 5rem)", lineHeight: 1 }}>
+        <div className="mx-auto max-w-4xl 2xl:max-w-5xl px-8 pt-12 2xl:pt-16 text-center [@media(max-height:900px)]:pt-6">
+          <h2 className="font-display uppercase text-foreground whitespace-nowrap [@media(max-height:900px)]:text-[1.75rem]" style={{ fontSize: "clamp(1.5rem, 4.2vw, 5rem)", lineHeight: 1 }}>
             Aktuelle Projekte
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-[13px] font-normal text-foreground/85 2xl:mt-8 2xl:max-w-3xl 2xl:text-sm [@media(max-height:760px)]:mt-3 [@media(max-height:760px)]:max-w-3xl [@media(max-height:760px)]:text-[11px] [@media(max-height:760px)]:leading-snug" style={{ lineHeight: 1.7 }}>
+          <p className="mx-auto mt-6 max-w-2xl text-[13px] font-normal text-foreground/85 2xl:mt-8 2xl:max-w-3xl 2xl:text-sm [@media(max-height:900px)]:mt-3 [@media(max-height:900px)]:max-w-3xl [@media(max-height:900px)]:text-[11px] [@media(max-height:900px)]:leading-snug" style={{ lineHeight: 1.7 }}>
 Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlose Ästhetik. Entdecken Sie unsere aktuellen Architektur- und Visualisierungsprojekte in der ganzen Schweiz — wo nachhaltige Materialien, moderne Formensprache und funktionales Design zu einzigartigen Lebensräumen verschmelzen.
           </p>
         </div>
 
 
-        <div ref={viewportRef} className="relative mt-6 flex-1 overflow-hidden py-12 xl:py-16 [@media(max-height:760px)]:mt-2 [@media(max-height:760px)]:py-4">
+        <div ref={viewportRef} className="relative mt-6 flex-1 overflow-hidden py-12 xl:py-16 [@media(max-height:900px)]:mt-2 [@media(max-height:900px)]:py-4">
 
           <div
             ref={trackRef}
@@ -393,15 +393,15 @@ Wir gestalten Architektur mit Präzision, Klarheit und einem Gespür für zeitlo
                 href={p.href}
                 target={p.href.startsWith("http") ? "_blank" : undefined}
                 rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group relative flex aspect-square h-full w-auto shrink-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 xl:rounded-3xl [@media(max-height:760px)]:aspect-[16/10]"
+                className="group relative flex aspect-square h-full w-auto shrink-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 xl:rounded-3xl [@media(max-height:900px)]:aspect-[16/10]"
 
                 style={{ boxShadow: "0 25px 60px -15px oklch(0 0 0 / 0.65), 0 10px 30px -10px oklch(0 0 0 / 0.5)" }}
               >
                 <img src={p.img} alt={p.name} width={1280} height={1600} loading={i === 0 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 py-[20px] px-0" style={{ background: "linear-gradient(0deg, oklch(0.08 0.01 25 / 0.85), transparent 60%)" }} />
-                <div className="relative z-10 mt-auto w-full p-5 sm:p-6 md:p-8 [@media(max-height:760px)]:p-4">
+                <div className="relative z-10 mt-auto w-full p-5 sm:p-6 md:p-8 [@media(max-height:900px)]:p-4">
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-wider-sm text-foreground/70">{String(i + 1).padStart(2, "0")} · {p.location}</span>
-                  <h3 className="mt-2 font-display uppercase text-foreground [@media(max-height:760px)]:text-xl" style={{ fontSize: "clamp(1.1rem, 2.4vw, 2.25rem)", lineHeight: 1 }}>
+                  <h3 className="mt-2 font-display uppercase text-foreground [@media(max-height:900px)]:text-xl" style={{ fontSize: "clamp(1.1rem, 2.4vw, 2.25rem)", lineHeight: 1 }}>
                     {p.name}
                   </h3>
                 </div>
