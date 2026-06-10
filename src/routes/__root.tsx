@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import faviconAsset from "@/assets/favicon.ico.asset.json";
 
 function NotFoundComponent() {
   return (
